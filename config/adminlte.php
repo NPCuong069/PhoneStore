@@ -45,7 +45,7 @@ return [
     |
     */
 
-    'logo' => '<b>Phone</b>Store',
+    'logo' => '<b>Admin</b>LTE',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
@@ -227,6 +227,11 @@ return [
     'menu' => [
         // Navbar items:
         [
+            'type'         => 'navbar-search',
+            'text'         => 'search',
+            'topnav_right' => true,
+        ],
+        [
             'type'         => 'fullscreen-widget',
             'topnav_right' => true,
         ],
@@ -250,54 +255,69 @@ return [
         ],
         ['header' => 'account_settings'],
         [
-            'text' => 'Manage Admin',
-            'url'  => '/showAdmin',
+            'text' => 'profile',
+            'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
-            'text' => 'Create New Admin',
-            'url'  => '/createAdmin',
-            'icon' => 'fas fa-fw fa-user-plus',
+            'text' => 'change_password',
+            'url'  => 'admin/settings',
+            'icon' => 'fas fa-fw fa-lock',
         ],
-        ['header' => 'PRODUCT'],
         [
-            'text' => 'Phone',
-            'icon' => 'fas fa-fw fa-mobile',
-            'submenu' =>[
+            'text'    => 'multilevel',
+            'icon'    => 'fas fa-fw fa-share',
+            'submenu' => [
                 [
-                    'text' => 'Show Phone',
-                    'url' => '/showPhone',
-                    'icon' => 'fas fa-fw fa-eye'
+                    'text' => 'level_one',
+                    'url'  => '#',
                 ],
                 [
-                'text' => 'Create New Phone',
-                'url' => '/createPhone',
-                'icon' => 'fas fa-fw fa-plus'
-                ]
-            ]
-        ],
-        [
-            'text' => 'Accessory',
-            'icon' => 'fas fa-fw fa-keyboard',
-            'submenu' =>[
-                [
-                    'text' => 'Show Accessory',
-                    'url' => '/showAccessory',
-                    'icon' => 'fas fa-fw fa-eye'
+                    'text'    => 'level_one',
+                    'url'     => '#',
+                    'submenu' => [
+                        [
+                            'text' => 'level_two',
+                            'url'  => '#',
+                        ],
+                        [
+                            'text'    => 'level_two',
+                            'url'     => '#',
+                            'submenu' => [
+                                [
+                                    'text' => 'level_three',
+                                    'url'  => '#',
+                                ],
+                                [
+                                    'text' => 'level_three',
+                                    'url'  => '#',
+                                ],
+                            ],
+                        ],
+                    ],
                 ],
                 [
-                'text' => 'Create New Accessory',
-                'url' => '/createAccessory',
-                'icon' => 'fas fa-fw fa-plus'
-                ]
-            ]
+                    'text' => 'level_one',
+                    'url'  => '#',
+                ],
+            ],
+        ],
+        ['header' => 'labels'],
+        [
+            'text'       => 'important',
+            'icon_color' => 'red',
+            'url'        => '#',
         ],
         [
-            'text' => 'Cart',
-            'url'  => '/home',
-            'icon' => 'fas fa-fw fa-shopping-cart',
+            'text'       => 'warning',
+            'icon_color' => 'yellow',
+            'url'        => '#',
         ],
-        
+        [
+            'text'       => 'information',
+            'icon_color' => 'cyan',
+            'url'        => '#',
+        ],
     ],
 
     /*
