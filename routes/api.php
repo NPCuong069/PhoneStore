@@ -35,6 +35,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     });
     Route::resource('phone', PhoneController::class);
     Route::resource('cart',CartController::class);
+    
     // API route for logout user
     Route::post('/logout', [App\Http\Controllers\AuthController::class, 'logout']);
 });

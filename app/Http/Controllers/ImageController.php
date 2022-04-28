@@ -6,25 +6,28 @@ use App\Models\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use App\Http\Resources\ImageResource;
 class ImageController extends Controller
 {
     public function store(Request $request)
 {
-    $image_64 = $request['image_data']; //your base64 encoded data
-
-    $extension = explode('/', explode(':', substr($image_64, 0, strpos($image_64, ';')))[1])[1];   // .jpg .png .pdf
+    $image_64 = $request['image_data'];
+    $inputName = $request['image_name'];
+    $extension = explode('/', explode(':', substr($image_64, 0, strpos($image_64, ';')))[1])[1];  
   
     $replace = substr($image_64, 0, strpos($image_64, ',')+1); 
   
-  // find substring fro replace here eg: data:image/png;base64,
   
-   $image = str_replace($replace, '', $image_64); 
+    $image = str_replace($replace, '', $image_64); 
   
-   $image = str_replace(' ', '+', $image); 
-  $imageName = Str::random(10).'.'.$extension;
+    $image = str_replace(' ', '+', $image); 
+    $imageName = $inputName.Str::random(5).'.'.$extension;
+    $data = Array (
+        'image_name'=>$imageName
+    );
 
-   Storage::disk('public')->put($imageName, base64_decode($image));
-
+    Image::create($data);
+    Storage::disk('public')->put('images/'.$imageName, base64_decode($image));
 
 
     // if(!$request->hasFile('fileName')) {
