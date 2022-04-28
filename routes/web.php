@@ -60,4 +60,7 @@ Route::get('/createAccessory', function () {
 Route::get('/updateAccessory', function () {
     return view('Accessory/updateAccessory');
 });
-?>
+//Image
+Route::get('/image', function () {
+    return view('image');
+});
