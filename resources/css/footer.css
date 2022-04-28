@@ -1,0 +1,83 @@
+/* footer */
+footer {
+    background-color: whitesmoke;
+    padding-top: 30px;
+    padding-bottom: 20px;
+  }
+  footer .block-c-1 p {
+    color: black;
+    text-align: justify;
+    font-size: 14px;
+    margin-top: 14px;
+  }
+  footer .block-c-1 i {
+    color: white;
+    font-size: 20px;
+    border-radius: 50%;
+  }
+  footer .block-c-2 {
+    color: black;
+    font-size: 14px;
+  }
+  footer .block-c-2 i {
+    color: black;
+    font-size: 14px;
+  }
+  footer .block-c-3 {
+    color: black;
+  }
+  footer .block-c-3 p {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+
+  .block-c-3 ul {
+    padding-left: 0px;
+    list-style: none;
+  }
+  .block-c-3 span {
+    display: inline-block;
+    width: 70px;
+    line-height: normal;
+  }
+  .block-c-3 a:hover {
+    text-decoration: none;
+  }
+  .block-c-3 a{
+    font-weight:bolder;
+    
+  }
+  footer .block-c-4 img {
+    width: 255px;
+    height: 88px;
+    padding-left: 15px;
+  }
+  footer .block-c-4 {
+    color: black;
+    font-size: 14px;
+  }
+  footer .block-c-4 .sup {
+    color: black;
+    font-size: 15px;
+    padding-left: 15px;
+  }
+  footer .block-c-4 p {
+    margin-bottom: 0;
+  }
+  footer .block-c-4 h5 {
+    color: black;
+  }
+  .block-c-4 a:hover {
+    text-decoration: none;
+  }
+  div.container-fluid {
+    padding-left: 80px;
+
+  }
+  .blockB {
+    display: block;
+  }
+  /* -------- */
+  .container-fluid {
+    padding-left: 80px;
+  }

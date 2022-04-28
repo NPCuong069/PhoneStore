@@ -1,0 +1,88 @@
+body {
+    font-size: 150%;
+    line-height: 1.6;
+  }
+  .top-mot {
+    background: black;
+    width: 100%;
+    height: 30px;
+  }
+  .top-mot a {
+    text-decoration: none;
+  }
+  .top-mot span {
+    line-height: 30px;
+  }
+  .top-bar ul li {
+    list-style: none;
+    /* float: left; này sẽ biến li thành div nó sẽ thành hàng ngang */
+    display: inline-block;
+    margin-right: -19px; /*này làm cho hết cái cụm bên phải lại gần*/
+  }
+  .top-bar ul li a {
+    padding: 0px 10px;
+    margin: 0px 2px;
+    margin-left: 20px; /*này làm cho hết cụm đó thụt vào*/
+  }
+  .top-bar-1 a {
+    border-left: 1px solid white;
+    padding-right: 60px;
+  }
+  .top-mot span {
+    color: grey;
+  }
+  .top-mot span:hover {
+    color: white;
+    text-decoration: none;
+  }
+  
+  /* --header hai--- */
+  .top-hai {
+    background: whitesmoke;
+    width: 100%;
+    height: 80px;
+    line-height: 80px;
+    position: relative;
+    margin-top: -1px;
+  }
+  .top-haidrop-item ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  .top-haidrop-item ul > li > a {
+    display: inline-block;
+    padding: 0px 5px;
+    line-height: 80px;
+    text-decoration: none;
+    font-weight: bolder;
+    color: gray;
+    margin-left: 50px;
+  }
+  .top-haidrop-item ul > li > a:hover {
+    color: rgba(243, 199, 3, 0.924);
+    text-decoration-style: dashed;
+    transition: 0.7s; /*này đổi màu chữ nav*/
+  }
+  .top-hai-item-icon ul li {
+    list-style: none;
+    float: left; /*này sẽ biến li thành div nó sẽ thành hàng ngang*/
+    display: block;
+  }
+  .top-hai-item-icon ul {
+    margin-left: -58px;
+  }
+  .top-hai-item-icon ul li a {
+    padding: 0px 10px;
+    margin: 0px 2px;
+    text-decoration: none;
+    color: gray;
+  }
+  .top-hai-item-icon .cart a {
+    border-left: 2px solid black;
+  }
+  .top-hai-item-icon > ul > li > a > i:hover {
+    color: rgba(243, 199, 3, 0.924);
+    text-decoration: none;
+  }
