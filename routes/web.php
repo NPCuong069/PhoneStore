@@ -24,6 +24,7 @@ Route::get('/showPhone', [PhoneControllerWeb::class, 'index']);
 Route::get('/home', function () {
     return view('home');
 });
+
 //Cart
 Route::get('/cart', function () {
     return view('cart');
@@ -68,4 +69,9 @@ Route::get('/updateAccessory', function () {
 //Image
 Route::get('/image', function () {
     return view('image');
+});
+
+//Home Page
+Route::get('/mainHome', function () {
+    return view('home');
 });

@@ -287,7 +287,7 @@ return [
         ],
         [
             'text' => 'Cart',
-            'url'  => '/home',
+            'url'  => '/cart',
             'icon' => 'fas fa-fw fa-shopping-cart',
         ],
         [
