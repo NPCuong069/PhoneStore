@@ -244,12 +244,12 @@ return [
         ['header' => 'account_settings'],
         [
             'text' => 'Manage Admin',
-            'url'  => '/showAdmin',
+            'url'  => '/admin',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
             'text' => 'Create New Admin',
-            'url'  => '/createAdmin',
+            'url'  => '/admin/create',
             'icon' => 'fas fa-fw fa-user-plus',
         ],
         ['header' => 'PRODUCT'],
@@ -259,12 +259,12 @@ return [
             'submenu' =>[
                 [
                     'text' => 'Show Phone',
-                    'url' => '/showPhone',
+                    'url' => '/phone',
                     'icon' => 'fas fa-fw fa-eye'
                 ],
                 [
                 'text' => 'Create New Phone',
-                'url' => '/createPhone',
+                'url' => '/phone/create',
                 'icon' => 'fas fa-fw fa-plus'
                 ]
             ]
@@ -275,12 +275,12 @@ return [
             'submenu' =>[
                 [
                     'text' => 'Show Accessory',
-                    'url' => '/showAccessory',
+                    'url' => '/accessory',
                     'icon' => 'fas fa-fw fa-eye'
                 ],
                 [
                 'text' => 'Create New Accessory',
-                'url' => '/createAccessory',
+                'url' => '/accessory/create',
                 'icon' => 'fas fa-fw fa-plus'
                 ]
             ]
@@ -295,6 +295,11 @@ return [
             'url'  => '/image',
             'icon' => 'fas fa-fw fa-images',
         ], 
+        [
+            'text' => 'Logout',
+            'url'  => '/#',
+            'icon' => 'fas fa-fw fa-arrow-right',
+        ],
     ],
 
     /*
