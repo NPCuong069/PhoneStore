@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Phone extends Model
+class Accessory extends Model
 {
     public $timestamps = false;
-    protected $table = "phone";
+    protected $table = "accesory";
     protected $primaryKey = 'id';
     protected $fillable =[
-        'phone_name','phone_price','phone_details','brand_id'
+        'accesory_name','accesory_price','accesory_details','brand_id'
     ];
 
 }

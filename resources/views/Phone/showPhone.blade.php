@@ -8,7 +8,13 @@
 
 @section('content')
     {{-- Minimal --}}
+    @if ($message = Session::get('success'))
+    <div class="alert alert-success">
+        <p>{{ $message }}</p>
+    </div>
+@endif
     <table class="table">
+
   <thead class="thead-dark">
     <tr>
       <th scope="col">ID</th>
@@ -20,45 +26,34 @@
     </tr>
   </thead>
   <tbody>
+    @foreach ($datas as $data)
     <tr>
-      <th scope="row">1</th>
-      <td style="text-align:center;">OPPO Reno6 Z 5G</td>
-      <td style="text-align:center;">9.490.000₫</td>
-      <td>Reno6 Z 5G đến từ nhà OPPO với hàng loạt sự nâng cấp và cải tiến không chỉ ngoại hình bên ngoài mà còn sức mạnh bên trong. </td>
-      <td scope="col"style="text-align:center;">OPPO</td>
+      <th scope="row">{{$data->id}}</th>
+      <td style="text-align:center;">{{$data->phone_name}}</td>
+      <td style="text-align:center;">{{$data->phone_price}}</td>
+      <td>{{$data->phone_details}}</td>
+      @foreach ($brands as $brand)
+      @if($brand->id==$data->brand_id)
+      <td scope="col"style="text-align:center;">{{$brand->brand_name}}</td>
+      @endif
+      @endforeach
       <td style="text-align:center;">
-        <a type="button" class="btn btn-warning" href="{{ url('/updatePhone')}}">Update</a>
+        <a type="button" class="btn btn-warning" href="{{route('phone.edit',$data->id)}}">Update</a>
         <br><br>
-        <a type="button" class="btn btn-danger" href="#">Delete</a>
+        <form action="{{ route('phone.destroy',$data->id) }}" method="POST">
+        @csrf
+        @method('DELETE')
+        <button type="submit" class="btn btn-danger">Delete</button>
+      </form>
       </td>
 
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td style="text-align:center;">Samsung Galaxy A23 6GB</td>
-      <td style="text-align:center;">5.990.000₫ </td>
-      <td>Được Samsung cho ra mắt vào 03/2022 - Samsung Galaxy A23 6GB có một thiết kế trẻ trung cùng bộ thông số kỹ thuật khá ấn tượng trong tầm giá</td>
-      <td scope="col"style="text-align:center;">Samsung</td>
-      <td style="text-align:center;">
-        <a type="button" class="btn btn-warning" href="{{ url('/updatePhone')}}">Update</a>
-        <br><br>
-        <a type="button" class="btn btn-danger" href="#">Delete</a>
-    </td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td style="text-align:center;">Samsung Galaxy A12 6GB</td>
-      <td style="text-align:center;">4.090.000₫</td>
-      <td>Galaxy A12 (6GB/128GB) 2021, một phiên bản smartphone giá rẻ với thiết kế đẹp, cấu hình tốt.</td>
-      <td scope="col"style="text-align:center;">Samsung</td>
-      <td style="text-align:center;">
-        <a type="button" class="btn btn-warning" href="{{ url('/updatePhone')}}">Update</a>
-        <br><br>
-        <a type="button" class="btn btn-danger" href="#">Delete</a>
-    </td>
-    </tr>
+      
+    @endforeach
+   
   </tbody>
 </table>
+
 @stop
 
 @section('css')

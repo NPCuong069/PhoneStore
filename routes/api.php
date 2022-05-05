@@ -29,13 +29,17 @@ Route::post('/register', [App\Http\Controllers\AuthController::class, 'register'
 //API route for login user
 Route::post('/login', [App\Http\Controllers\AuthController::class, 'login']);
 Route::post('multiple-image-upload', [ImageController::class, 'store']);
+Route::get('/comment',[App\Http\Controllers\CommentController::class,'commentByPhone']);
+Route::get('/rate',[App\Http\Controllers\CommentController::class,'rateByPhone']);
+Route::resource('phone', PhoneController::class);
+Route::get('/comment2',[App\Http\Controllers\CommentController::class,'commentByAccessory']);
+Route::get('/rate2',[App\Http\Controllers\CommentController::class,'rateByAccessory']);
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('/profile', function(Request $request) {
         return auth()->user();
     });
-    Route::resource('phone', PhoneController::class);
+
     Route::resource('cart',CartController::class);
     
-    // API route for logout user
     Route::post('/logout', [App\Http\Controllers\AuthController::class, 'logout']);
 });

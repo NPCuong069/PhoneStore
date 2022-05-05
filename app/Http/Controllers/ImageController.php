@@ -11,6 +11,10 @@ class ImageController extends Controller
 {
     public function store(Request $request)
 {
+    $validatedData = $request->validate([
+        'image_name' => 'required|unique:posts|max:255',
+        'image_data' => 'required',
+    ]);
     $image_64 = $request['image_data'];
     $inputName = $request['image_name'];
     $extension = explode('/', explode(':', substr($image_64, 0, strpos($image_64, ';')))[1])[1];  
@@ -25,7 +29,7 @@ class ImageController extends Controller
     $data = Array (
         'image_name'=>$imageName
     );
-
+    
     Image::create($data);
     Storage::disk('public')->put('images/'.$imageName, base64_decode($image));
 

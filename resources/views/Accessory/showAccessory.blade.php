@@ -21,54 +21,30 @@
     </tr>
   </thead>
   <tbody>
+    @foreach ($datas as $data)
     <tr>
-      <th scope="row">1</th>
-      <td style="text-align:center;">Tai nghe Bluetooth True Wireless Rezo F15</td>
-      <td style="text-align:center;">560.000₫</td>
-      <td>
-        Kiểu dáng gọn nhẹ, đeo vừa vặn, dễ mang theo. 
-        Chất âm sinh động, mạnh mẽ. 
-        Tín hiệu kết nối không dây mượt mà với công nghệ Bluetooth 5.0.
-      </td>
-      <td scope="col"style="text-align:center;">Mozard</td>
+      <th scope="row">{{$data->id}}</th>
+      <td style="text-align:center;">{{$data->accesory_name}}</td>
+      <td style="text-align:center;">{{$data->accesory_price}}</td>
+      <td>{{$data->accesory_details}}</td>
+      @foreach ($brands as $brand)
+      @if($brand->id==$data->brand_id)
+      <td scope="col"style="text-align:center;">{{$brand->brand_name}}</td>
+      @endif
+      @endforeach
       <td style="text-align:center;">
-        <a type="button" class="btn btn-warning" href="{{ url('/updateAccessory')}}">Update</a>
+        <a type="button" class="btn btn-warning" href="{{route('phone.edit',$data->id)}}">Update</a>
         <br><br>
-        <a type="button" class="btn btn-danger" href="#">Delete</a>
+        <form action="{{ route('phone.destroy',$data->id) }}" method="POST">
+        @csrf
+        @method('DELETE')
+        <button type="submit" class="btn btn-danger">Delete</button>
+      </form>
       </td>
 
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td style="text-align:center;">Loa Bluetooth Mozard E8</td>
-      <td style="text-align:center;">665.000₫</td>
-      <td>
-        Thiết kế với kiểu dáng hình trụ bo tròn đẹp mắt.
-        Công nghệ Bluetooth 5.0 kết nối mượt mà trong khoảng cách 10 m.
-        Công suất 15 W cho âm thanh phát ra lớn và sống động.
-      </td>
-      <td scope="col"style="text-align:center;">Samsung</td>
-      <td style="text-align:center;">
-        <a type="button" class="btn btn-warning" href="{{ url('/updateAccessory')}}">Update</a>
-        <br><br>
-        <a type="button" class="btn btn-danger" href="#">Delete</a>
-    </td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td style="text-align:center;">Pin sạc dự phòng 7500 mAh AVA+ LJ JP199</td>
-      <td style="text-align:center;">179.000₫</td>
-      <td>
-        Thiết kế thời trang, nhỏ nhắn, dễ mang theo.
-        Sử dụng lõi pin Li-Ion an toàn, bền tốt.
-        Nguồn ra có 2 cổng USB 5V – 2A.</td>
-      <td scope="col"style="text-align:center;">AVA+</td>
-      <td style="text-align:center;">
-        <a type="button" class="btn btn-warning" href="{{ url('/updateAccessory')}}">Update</a>
-        <br><br>
-        <a type="button" class="btn btn-danger" href="#">Delete</a>
-    </td>
-    </tr>
+      
+    @endforeach
   </tbody>
 </table>
 @stop

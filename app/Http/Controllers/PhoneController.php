@@ -17,7 +17,11 @@ class PhoneController extends Controller
     }
     public function index(){
         $data = Phone::all();
-        return response()->json([PhoneResource::collection($data), 'Programs fetched.']);
+        return response()->json(PhoneResource::collection($data));
+    }
+    public function indexWeb(){
+        $data = Phone::all();
+        return view('Phone/showPhone',['datas' => $data]);
     }
     public function show($id)
     {

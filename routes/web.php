@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\AccessoryController;
+use App\Http\Controllers\AccessoryControllerWeb;
+use App\Http\Controllers\PhoneController;
+use App\Http\Controllers\PhoneControllerWeb;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::get('/showPhone', [PhoneControllerWeb::class, 'index']);
 Route::get('/home', function () {
     return view('home');
 });
@@ -32,14 +36,15 @@ Route::get('/showAdmin', function () {
 Route::get('/updateAdmin', function () {
     return view('Admin/updateAdmin');
 });
-
+Route::resource('phone', PhoneControllerWeb::class);
+Route::resource('accessory', AccessoryControllerWeb::class);
 Route::get('/createAdmin', function () {
     return view('Admin/createNewAdmin');
 });
 //Phone
-Route::get('/showPhone', function () {
-    return view('Phone/showPhone');
-});
+// Route::get('/showPhone', function () {
+//     return view('Phone/showPhone');
+// });
 
 Route::get('/createPhone', function () {
     return view('Phone/createNewPhone');

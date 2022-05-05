@@ -8,7 +8,7 @@
 </head>
 <body>
     <h2>Create phone</h2>
-    <form action="/phone/create" method="post">
+    <form action="{{route('phone.store')}}" method="post">
         @csrf
         <label for="Name">
             Phone name:

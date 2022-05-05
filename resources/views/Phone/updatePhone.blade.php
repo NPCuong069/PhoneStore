@@ -12,19 +12,19 @@
   <div class="form-group row">
     <label for="inputName" class="col-sm-3 col-form-label">Phone Name</label>
     <div class="col-sm-7">
-      <input type="text" class="form-control" id="inputName" placeholder="Name">
+      <input type="text" class="form-control" id="inputName" placeholder="Name" value="{{$phone->phone_name}}">
     </div>
   </div>
   <div class="form-group row">
     <label for="inputPrice" class="col-sm-3 col-form-label">Price</label>
     <div class="col-sm-7">
-      <input type="numeric" class="form-control" id="inputPrice" placeholder="Price">
+      <input type="numeric" class="form-control" id="inputPrice" placeholder="Price" value="{{$phone->phone_price}}">
     </div>
   </div>
   <div class="form-group row">
     <label for="inputDetail" class="col-sm-3 col-form-label">Detail</label>
     <div class="col-sm-7">
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Detail"></textarea>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Detail">{{$phone->phone_details}}</textarea>
     </div>
   </div>
   <div class="form-group row">
