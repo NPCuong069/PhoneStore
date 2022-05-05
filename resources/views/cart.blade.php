@@ -54,7 +54,7 @@
     </tr>
     <tr>
       <th scope="row">4</th>
-      <td style="text-align:center;">Minh cute</td>
+      <td style="text-align:center;">Minh Hoàng</td>
       <td style="text-align:center;">0344465456</td>
       <td style="text-align:center;">Thích Quảng Đức</td>
       <td style="text-align:center;">26/06</td>
