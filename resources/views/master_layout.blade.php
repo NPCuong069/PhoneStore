@@ -62,7 +62,7 @@
                             </a>
                         </li>
                         <li class="cart">
-                            <a href="#">
+                            <a href="/cartCustomer">
                                 <i class="fa fa-shopping-cart" style="font-size: 19px; line-height:70px;"></i>
                             </a>
                         </li>
@@ -76,6 +76,7 @@
 @yield('Home')
 @yield('Product')
 @yield('Product-detail')
+@yield('Cart')
 
 <!--Start footer-->
     <footer class="container-fluid">

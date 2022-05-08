@@ -92,3 +92,7 @@ Route::get('/accessory', function () {
 Route::get('/accessoryDetail', function () {
     return view('Customer/accessory-detail');
 });
+
+Route::get('/cartCustomer', function () {
+    return view('Customer/cart');
+});

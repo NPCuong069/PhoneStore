@@ -1,0 +1,38 @@
+td{
+    font-size:15px;
+}
+
+th{
+    font-size:18px;
+}
+
+.cart-total{
+    border-top: 1px solid #e0e0e0;
+    margin-top: 15px;
+    background-color:#edeff1;
+    padding-bottom: 20px;
+}
+
+.total{
+    text-align: right;
+    padding-top: 20px;
+    padding-bottom:20px;
+    padding-right: 20px;
+}
+
+.tongChiPhi{
+    color:#737373;
+    font-weight: bold;
+    font-size:18px;
+}
+
+.money{
+    color: red;
+    font-weight: bold;
+    font-size:19px;
+    padding-left: 10px;
+}
+
+.buttonThanhToan{
+    float: right;
+}
