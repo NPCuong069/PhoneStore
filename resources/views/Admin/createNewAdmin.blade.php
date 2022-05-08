@@ -8,26 +8,27 @@
 
 @section('content')
     {{-- Minimal --}}
-    <form style="margin-left: 100px; margin-right:100px; margin-top:50px">
+    <form style="margin-left: 100px; margin-right:100px; margin-top:50px" action="{{route('admin.customRegistration')}}" method="POST">
+      @csrf
   <div class="form-group row">
     <label for="inputName" class="col-sm-3 col-form-label">Full Name</label>
     <div class="col-sm-7">
-      <input type="email" class="form-control" id="inputName" placeholder="Name">
+      <input type="text" class="form-control" name="name" placeholder="Name" value="{{old('name')}}">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="inputName" class="col-sm-3 col-form-label">Email</label>
+    <div class="col-sm-7">
+      <input type="email" class="form-control" name="email"  placeholder="Email" value="{{old('email')}}">
     </div>
   </div>
   <div class="form-group row">
     <label for="inputPassword" class="col-sm-3 col-form-label">Password</label>
     <div class="col-sm-7">
-      <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+      <input type="password" class="form-control" name="password"  placeholder="Password" value="{{old('password')}}">
     </div>
   </div>
-  <div class="form-group row">
-    <label for="exampleFormControlSelect1" class="col-sm-3 col-form-label">Role</label>
-    <select class="form-control col-sm-7" id="exampleFormControlSelect1">
-      <option>Admin</option>
-      <option>Employee</option>
-    </select>
-  </div>
+
   <div class="form-group row">
   <div class="col-sm-3">
     </div>

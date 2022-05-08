@@ -189,7 +189,7 @@ return [
 
     'use_route_url' => false,
     'dashboard_url' => 'home',
-    'logout_url' => 'logout',
+    'logout_url' => 'signout',
     'login_url' => 'login',
     'register_url' => 'register',
     'password_reset_url' => 'password/reset',
@@ -295,11 +295,6 @@ return [
             'url'  => '/image',
             'icon' => 'fas fa-fw fa-images',
         ], 
-        [
-            'text' => 'Logout',
-            'url'  => '/#',
-            'icon' => 'fas fa-fw fa-arrow-right',
-        ],
     ],
 
     /*

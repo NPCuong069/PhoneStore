@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Phone;
 use App\Models\Brand;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Resources\PhoneResource;
 class PhoneControllerWeb extends Controller
@@ -13,21 +15,28 @@ class PhoneControllerWeb extends Controller
         return view('phone.createNewPhone',['brands'=>$brands]);
     }
     public function edit($id){
-        // Tìm đến đối tượng muốn update
+        $brands = Brand::all();
         $phone = Phone::find($id);
-
-        // điều hướng đến view edit user và truyền sang dữ liệu về user muốn sửa đổi
-        return view('phone.updatePhone', compact('phone'));
+        return view('phone.updatePhone', ['phone'=>$phone,'brands'=>$brands]);
     }
     public function store(Request $request){
-
-        Phone::create($request->all());
-        echo"success create phone";
+        $request->validate([
+            'image'=>'required|mimes:jpg,png,jpeg|max:5000'
+        ]);
+        $inputName =     str_replace(' ', '', $request->phone_name);
+        $imageName = $inputName.Str::random(5).'.'.$request->image->extension();
+        Storage::disk('public')->put('images/'.$imageName,file_get_contents($request->image));
+        $request['phone_image'] = $imageName;
+        $request->merge([
+            'phone_image' => $imageName
+        ]);
+        $data = $request->only('phone_name','phone_price','phone_details','brand_id','phone_image');
+        phone::create($data);
         return redirect()->route('phone.index')
         ->with('success','Phone created successfully.');
     }
     public function index(){
-        $data = Phone::all();
+        $data = Phone::paginate(5);
         $brand = Brand::all();
         return view('Phone/showPhone',['datas' => $data,'brands'=>$brand]);
     }
@@ -47,11 +56,11 @@ class PhoneControllerWeb extends Controller
         return redirect()->route('phone.index')
         ->with('success','Product deleted successfully');
     }
-    public function update(Request $request, $id)
+    public function update(Request $request,Phone $phone)
     {                                  
-        $phone=Phone::find($id);
         $phone->update($request->all());
-        return $phone;
+        return redirect()->route('phone.index')
+        ->with('success','Phone updated successfully');
     }
     
 }

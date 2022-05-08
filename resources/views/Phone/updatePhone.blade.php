@@ -8,30 +8,33 @@
 
 @section('content')
     {{-- Minimal --}}
-    <form style="margin-left: 100px; margin-right:100px; margin-top:50px">
+    <form style="margin-left: 100px; margin-right:100px; margin-top:50px" action="{{route('phone.update',$phone->id)}}" method="POST">
+    @csrf
+    @method('PUT')
   <div class="form-group row">
     <label for="inputName" class="col-sm-3 col-form-label">Phone Name</label>
     <div class="col-sm-7">
-      <input type="text" class="form-control" id="inputName" placeholder="Name" value="{{$phone->phone_name}}">
+      <input type="text" class="form-control" name="phone_name" placeholder="Name" value="{{$phone->phone_name}}">
     </div>
   </div>
   <div class="form-group row">
     <label for="inputPrice" class="col-sm-3 col-form-label">Price</label>
     <div class="col-sm-7">
-      <input type="numeric" class="form-control" id="inputPrice" placeholder="Price" value="{{$phone->phone_price}}">
+      <input type="numeric" class="form-control" name="phone_price" placeholder="Price" value="{{$phone->phone_price}}">
     </div>
   </div>
   <div class="form-group row">
     <label for="inputDetail" class="col-sm-3 col-form-label">Detail</label>
     <div class="col-sm-7">
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Detail">{{$phone->phone_details}}</textarea>
+    <textarea class="form-control" name="phone_details" rows="3" placeholder="Detail">{{$phone->phone_details}}</textarea>
     </div>
   </div>
   <div class="form-group row">
     <label for="exampleFormControlSelect1" class="col-sm-3 col-form-label">Brand</label>
-    <select class="form-control col-sm-7" id="exampleFormControlSelect1">
-      <option>OPPO</option>
-      <option>Samsung</option>
+    <select class="form-control col-sm-7" name="brand_id">
+      @foreach ($brands as $brand)
+      <option value="{{$brand->id}}">{{$brand->brand_name}}</option>
+      @endforeach
     </select>
   </div>
   <div class="form-group row">

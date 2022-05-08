@@ -9,30 +9,45 @@ use Illuminate\Support\Str;
 use App\Http\Resources\ImageResource;
 class ImageController extends Controller
 {
+    public function upload(Request $request)
+{
+    $request->validate([
+        'image'=>'required|mimes:jpg,png,jpeg|max:5000'
+    ]);
+    $test= $request->file('image')->getMimeType();
+    $inputName =     str_replace(' ', '', $request->imageName);
+    $imageName = $inputName.Str::random(5).'.'.$request->image->extension();
+    Storage::disk('public')->put('images/'.$imageName,file_get_contents($request->image));
+    $data = Array (
+        'image_name'=>$imageName
+    );
+    Image::create($data);
+}
+
+
+
     public function store(Request $request)
 {
     $validatedData = $request->validate([
-        'image_name' => 'required|unique:posts|max:255',
+        'input_name' => 'required|max:255',
         'image_data' => 'required',
     ]);
     $image_64 = $request['image_data'];
-    $inputName = $request['image_name'];
+    $inputName = $request['input_name'];
     $extension = explode('/', explode(':', substr($image_64, 0, strpos($image_64, ';')))[1])[1];  
   
     $replace = substr($image_64, 0, strpos($image_64, ',')+1); 
   
-  
+
     $image = str_replace($replace, '', $image_64); 
-  
+
     $image = str_replace(' ', '+', $image); 
     $imageName = $inputName.Str::random(5).'.'.$extension;
     $data = Array (
         'image_name'=>$imageName
     );
-    
     Image::create($data);
     Storage::disk('public')->put('images/'.$imageName, base64_decode($image));
-
 
     // if(!$request->hasFile('fileName')) {
     //     return response()->json(['upload_file_not_found'], 400);

@@ -8,6 +8,11 @@
 
 @section('content')
     {{-- Minimal --}}
+    @if ($message = Session::get('success'))
+    <div class="alert alert-success">
+        <p>{{ $message }}</p>
+    </div>
+@endif
     <table class="table">
   <thead class="thead-dark">
     <tr>
@@ -33,7 +38,7 @@
       @endif
       @endforeach
       <td style="text-align:center;">
-        <a type="button" class="btn btn-warning" href="{{route('phone.edit',$data->id)}}">Update</a>
+        <a type="button" class="btn btn-warning" href="{{route('accessory.edit',$data->id)}}">Update</a>
         <br><br>
         <form action="{{ route('phone.destroy',$data->id) }}" method="POST">
         @csrf
@@ -47,6 +52,7 @@
     @endforeach
   </tbody>
 </table>
+
 @stop
 
 @section('css')

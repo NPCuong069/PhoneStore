@@ -8,7 +8,7 @@
 
 @section('content')
     {{-- Placeholder, sm size and prepend icon --}}
-    <form action="{{url('cart')}}" method="POST" enctype="multipart/form-data">
+    {{-- <form action="{{url('cart')}}" method="POST" enctype="multipart/form-data">
         @csrf
     <x-adminlte-input-file name="ifPholder" igroup-size="sm" placeholder="Choose a file...">
         <x-slot name="prependSlot">
@@ -21,6 +21,16 @@
     <div class="col-md-6">
         <button type="submit" class="btn btn-success">Upload</button>
     </div>
+</form> --}}
+<form method="POST" id="form_upload" action="{{ route('upload.base64') }}" enctype="multipart/form-data">
+    @csrf
+    <div class="form-group">
+        <input name="imageName" class="form-control" placeholder="Image Name"/>
+    </div>
+    <div class="form-group">
+        <input type="file" name="image" class="form-control">
+    </div>
+    <button type="submit" id="send_data" class="btn">Upload & Save</button>
 </form>
 @stop
 

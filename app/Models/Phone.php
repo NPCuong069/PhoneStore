@@ -11,7 +11,7 @@ class Phone extends Model
     protected $table = "phone";
     protected $primaryKey = 'id';
     protected $fillable =[
-        'phone_name','phone_price','phone_details','brand_id'
+        'phone_name','phone_price','phone_details','brand_id','phone_image','phone_available'
     ];
 
 }

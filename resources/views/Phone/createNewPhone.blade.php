@@ -8,7 +8,7 @@
 
 @section('content')
     {{-- Minimal --}}
-    <form style="margin-left: 100px; margin-right:100px; margin-top:50px" action="{{route('phone.store')}}" method="POST">
+    <form style="margin-left: 100px; margin-right:100px; margin-top:50px" action="{{route('phone.store')}}" method="POST" enctype="multipart/form-data">
       @csrf
   <div class="form-group row">
     <label for="inputName" class="col-sm-3 col-form-label">Phone Name</label>
@@ -35,6 +35,13 @@
       <option value="{{$brand->id}}">{{$brand->brand_name}}</option>
       @endforeach
     </select>
+  </div>
+  <div class="form-group row">
+    <label for="exampleFormControlSelect1" class="col-sm-3 col-form-label">Image</label>
+    <div class="col-sm-7">
+      <input type="file" name="image" class="form-control">
+      <input type="text" class="form-control" hidden="hidden" name="phone_image">
+  </div>
   </div>
   <div class="form-group row">
   <div class="col-sm-3">

@@ -2,6 +2,7 @@
 
 @section('title', 'Manage Phone Page')
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" />
 @section('content_header')
     <h1 style="text-align:center;font-family:Calibri; font-size: 40px;">Phone</h1>
 @stop
@@ -13,6 +14,12 @@
         <p>{{ $message }}</p>
     </div>
 @endif
+@if($message = Session::get('error'))
+<div class="alert alert-danger">
+  <p>{{ $message }}</p>
+</div>
+@endif
+
     <table class="table">
 
   <thead class="thead-dark">
@@ -53,6 +60,7 @@
    
   </tbody>
 </table>
+  {{$datas->links()}}
 
 @stop
 

@@ -12,51 +12,29 @@
   <thead class="thead-dark">
     <tr>
       <th scope="col">ID</th>
-      <th scope="col"style="text-align:center;">Full name</th>
-      <th scope="col"style="text-align:center;">Passwword</th>
+      <th scope="col"style="text-align:center;">Name</th>
+      <th scope="col"style="text-align:center;">Email</th>
       <th scope="col"style="text-align:center;">Role</th>
       <th scope="col"style="text-align:center;">Function</th>
     </tr>
   </thead>
   <tbody>
+    @foreach ($datas as $data)
     <tr>
-      <th scope="row">1</th>
-      <td style="text-align:center;">Cường</td>
-      <td style="text-align:center;">0896494632</td>
-      <td style="text-align:center;">Admin</td>
-      <td style="text-align:center;">
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td style="text-align:center;">Minh</td>
-      <td style="text-align:center;">0378649463</td>
-      <td style="text-align:center;">Employee</td>
-      <td style="text-align:center;">
-        <a type="button" class="btn btn-warning" href="{{ url('/updateAdmin')}}">Update</a>
-        <a type="button" class="btn btn-danger">Delete</a>
-    </td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td style="text-align:center;">Vỹ</td>
-      <td style="text-align:center;">0344465673</td>
-      <td style="text-align:center;">Employee</td>
-      <td style="text-align:center;">
-        <a type="button" class="btn btn-warning" href="{{ url('/updateAdmin')}}">Update</a>
-        <a type="button" class="btn btn-danger">Delete</a>
-    </td>
-    </tr>
-    <tr>
-      <th scope="row">4</th>
-      <td style="text-align:center;">Minh cute</td>
-      <td style="text-align:center;">0344465456</td>
-      <td style="text-align:center;">Employee</td>
-      <td style="text-align:center;">
-        <a type="button" class="btn btn-warning" href="{{ url('/updateAdmin')}}">Update</a>
-        <a type="button" class="btn btn-danger">Delete</a>
-    </td>
-    </tr>
+    <th scope="row">{{$data->id}}</th>
+    <td style="text-align:center;">{{$data->name}}</td>
+    <td style="text-align:center;">{{$data->email}}</td>
+    <td style="text-align:center;">{{$data->role==0?"Admin":"Employee"}}</td>
+    <td style="text-align:center;">
+      @if($data->role==1)
+      <a type="button" class="btn btn-warning" href="{{ url('/updateAdmin')}}">Update</a>
+      <a type="button" class="btn btn-danger">Delete</a>
+      @endif
+  </td>
+</tr>
+    
+    @endforeach
+
   </tbody>
 </table>
 @stop
