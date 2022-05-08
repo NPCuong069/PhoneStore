@@ -50,7 +50,7 @@
                     <ul>
                         <li><a href="/mainHome">Trang Chủ</a></li>
                         <li><a href="/phone">Sản Phẩm</a></li>
-                        <li><a href="#">Lịch sử đơn hàng</a></li>
+                        <li><a href="/shoppingHistory">Lịch sử đơn hàng</a></li>
                         <li><a href="#">Về chúng tôi</a></li>
                     </ul>
                 </div>
@@ -77,7 +77,7 @@
 @yield('Product')
 @yield('Product-detail')
 @yield('Cart')
-
+@yield('Shopping-history')
 <!--Start footer-->
     <footer class="container-fluid">
         <div class="container-fluid">

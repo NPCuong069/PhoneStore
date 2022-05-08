@@ -1,0 +1,22 @@
+.content{
+    background-color: #e0e0e0;
+    padding: 10px;
+}
+
+.image{
+    width: 150px;
+}
+
+.text{
+    padding-top:50px;
+    font-size:18px
+}
+
+.btn{
+    font-size: 17px;
+}
+
+.buttonMuaLai{
+    padding-top:50px;
+    padding-right: 30px;
+}

@@ -96,3 +96,7 @@ Route::get('/accessoryDetail', function () {
 Route::get('/cartCustomer', function () {
     return view('Customer/cart');
 });
+
+Route::get('/shoppingHistory', function () {
+    return view('Customer/shopping-history');
+});
