@@ -75,3 +75,20 @@ Route::get('/image', function () {
 Route::get('/mainHome', function () {
     return view('home');
 });
+
+//Product Page
+Route::get('/phone', function () {
+    return view('Customer/phone');
+});
+
+Route::get('/phoneDetail', function () {
+    return view('Customer/phone-detail');
+});
+
+Route::get('/accessory', function () {
+    return view('Customer/accessory');
+});
+
+Route::get('/accessoryDetail', function () {
+    return view('Customer/accessory-detail');
+});

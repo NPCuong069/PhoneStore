@@ -295,11 +295,6 @@ return [
             'url'  => '/image',
             'icon' => 'fas fa-fw fa-images',
         ], 
-        [
-            'text' => 'Logout',
-            'url'  => '/#',
-            'icon' => 'fas fa-fw fa-arrow-right',
-        ],
     ],
 
     /*

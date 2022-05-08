@@ -48,8 +48,8 @@
                 </div>
                 <div class="col-9 top-haidrop-item ">
                     <ul>
-                        <li><a href="./home.php">Trang Chủ</a></li>
-                        <li><a href="./sanpham.php">Sản Phẩm</a></li>
+                        <li><a href="/mainHome">Trang Chủ</a></li>
+                        <li><a href="/phone">Sản Phẩm</a></li>
                         <li><a href="#">Lịch sử đơn hàng</a></li>
                         <li><a href="#">Về chúng tôi</a></li>
                     </ul>
@@ -74,6 +74,8 @@
     <br>
 <!--End header-->
 @yield('Home')
+@yield('Product')
+@yield('Product-detail')
 
 <!--Start footer-->
     <footer class="container-fluid">
