@@ -72,3 +72,67 @@ a:hover{
     font-weight: bold;
     color:red;
 }
+
+/*Page Header*/
+.page-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 250px;
+    background-color: #C8C3BF;
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+    color: #222;
+}
+
+.page-subtitle {
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    font-size: 2rem;
+    line-height: 1.2;
+    color: #fff;
+}
+
+.page-title {
+    margin-bottom: 0;
+    text-transform: uppercase;
+    font-size: 4rem;
+    line-height: 1.125;
+    color: #fff;
+}
+
+/*Filter*/
+.category{
+    border: 1px solid #EAE9E5;
+    padding: 10px;
+    margin-bottom: 44px;
+    word-wrap: break-word;
+    background: #fff;
+}
+
+.title-category{
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 13px;
+    color: #a1a6aa;
+    padding: 0;
+    text-align: center;
+}
+
+ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    align-items: center;
+    padding-left: 20px;
+}
+
+ul li{
+    font: inherit;
+    margin-bottom: 0;
+    color: inherit;
+   
+}

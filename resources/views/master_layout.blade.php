@@ -48,9 +48,9 @@
                 </div>
                 <div class="col-9 top-haidrop-item ">
                     <ul>
-                        <li><a href="./home.php">Trang Chủ</a></li>
-                        <li><a href="./sanpham.php">Sản Phẩm</a></li>
-                        <li><a href="#">Lịch sử đơn hàng</a></li>
+                        <li><a href="/mainHome">Trang Chủ</a></li>
+                        <li><a href="/phone">Sản Phẩm</a></li>
+                        <li><a href="/shoppingHistory">Lịch sử đơn hàng</a></li>
                         <li><a href="#">Về chúng tôi</a></li>
                     </ul>
                 </div>
@@ -62,7 +62,7 @@
                             </a>
                         </li>
                         <li class="cart">
-                            <a href="#">
+                            <a href="/cartCustomer">
                                 <i class="fa fa-shopping-cart" style="font-size: 19px; line-height:70px;"></i>
                             </a>
                         </li>
@@ -74,7 +74,10 @@
     <br>
 <!--End header-->
 @yield('Home')
-
+@yield('Product')
+@yield('Product-detail')
+@yield('Cart')
+@yield('Shopping-history')
 <!--Start footer-->
     <footer class="container-fluid">
         <div class="container-fluid">

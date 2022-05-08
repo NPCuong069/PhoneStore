@@ -80,3 +80,28 @@ Route::get('/image', function () {
 Route::get('/mainHome', function () {
     return view('home');
 });
+
+//Product Page
+Route::get('/phone', function () {
+    return view('Customer/phone');
+});
+
+Route::get('/phoneDetail', function () {
+    return view('Customer/phone-detail');
+});
+
+Route::get('/accessory', function () {
+    return view('Customer/accessory');
+});
+
+Route::get('/accessoryDetail', function () {
+    return view('Customer/accessory-detail');
+});
+
+Route::get('/cartCustomer', function () {
+    return view('Customer/cart');
+});
+
+Route::get('/shoppingHistory', function () {
+    return view('Customer/shopping-history');
+});
