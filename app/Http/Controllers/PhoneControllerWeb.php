@@ -40,15 +40,14 @@ class PhoneControllerWeb extends Controller
         $brand = Brand::all();
         return view('Phone/showPhone',['datas' => $data,'brands'=>$brand]);
     }
-    public function show($id)
-    {
-        $program = Phone::find($id);
 
-        if (is_null($program)) {
-            return response()->json('Data not found', 404); 
-        }
-        return response()->json([new PhoneResource($program)]);
+    public function show(Request $request)
+    {
+        $phone = Phone::find($request->id);
+        $brand = Brand::all();
+        return view('Customer/phone-detail',['phone' => $phone,'brands'=>$brand]);
     }
+    
     public function destroy($id)
     {
         $phone = Phone::find($id);

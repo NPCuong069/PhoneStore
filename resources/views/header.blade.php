@@ -5,27 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-  
-    <link rel="stylesheet" href="css/libs/fontawesome-free-5.15.4/css/all.min.css">
+    <!-- <link rel="stylesheet" href="../css/libs/fontawesome-free-5.15.4/css/all.min.css"> -->
+    <link rel="stylesheet" href="{{ URL::asset('css/libs/fontawesome-free-5.15.4/css/all.min.css') }}" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/imgHeaderFooter">
+    <!-- <link rel="stylesheet" href="../../public/css/header.css"> -->
+    <link rel="stylesheet" href="{{ URL::asset('css/header.css') }}" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 </head>
 <body>
 <div class="container-fluid top-mot">
         <div class="row top-mot-content">
             <div class="col-12 top-bar">
-                <ul>
+                <ul style="padding-left: 11px;">
                     <li>
-                    
                         <a href="tel:0935036595">
                             <i class="fas fa-phone-volume" style="font-size:16px; color: grey;line-height:30px;"></i>
                             <span style="font-size: 12px; vertical-align:1px;">096 696 9999</span>
                             <!-- vertical-align: cân chỉnh theo chiều dọc/text align: cân chỉnh chiều ngang-->
                         </a>
-                       
                     </li>
                     <li class="top-bar-1">
                         <a href="#">
@@ -37,13 +35,11 @@
             </div>
         </div>
     </div>
-    
-  
     <header>
         <div class="container-fluid top-hai">
             <div class="row top-hai-content">
                 <div class="col-1 top-hai-item ">
-                    <img src="imgHeaderFooter/logo.png" style="padding-left:25px; max-height: 76px;border-radius: 30%; display: block; width: auto; margin-top: 1px;">
+                    <img src="{{ URL::asset('css/imgHeaderFooter/screenshot_1650441246.png') }}" style="padding-left:25px; max-height: 76px;border-radius: 30%; display: block; width: auto; margin-top: 1px;">
                 </div>
                 <div class="col-9 top-haidrop-item ">
                     <ul>
@@ -70,6 +66,5 @@
             </div>
         </div>
     </header>
-
 </body>
 </html>

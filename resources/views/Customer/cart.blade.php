@@ -27,45 +27,41 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach($phones as $phone)
                 <tr>
                     <th scope="row">
-                        <img src="img/home/taiNgheBluetooth.jpeg" style="width:150px">
+                        <img src="http://localhost:8000/storage/images/{{$phone['phone_image']}}" style="width:150px">
                     </th>
-                    <td>iphone 13 mini 5G 128GB</td>
-                    <td style="color: red">20.900.000đ</td>
+                    <td>{{$phone['phone_name']}}</td>
+                    <td style="color: red">{{number_format($phone['phone_price'])}}đ</td>
                     <td>
-                        <input type="number" value="2" min="1">
+                        <input type="number" value="{{$phone['quantity']}}" min="1">
                     </td>
                     <td style="text-align: center">
-                        20.900.000đ
+                        {{number_format($phone['phone_price']*$phone['quantity'])}}đ
+                        
                     </td>
+                  
                 </tr>
+                @endforeach
+                @foreach($accessories as $phone)
                 <tr>
                     <th scope="row">
-                        <img src="img/home/taiNgheBluetooth.jpeg" style="width:150px">
+                        <img src="http://localhost:8000/storage/images/{{$phone['phone_image']}}" style="width:150px">
                     </th>
-                    <td>iphone 13 mini 5G 128GB</td>
-                    <td style="color: red">20.900.000đ</td>
+                    <td>{{$phone['phone_name']}}</td>
+                    <td style="color: red">{{number_format($phone['phone_price'])}}đ</td>
                     <td>
-                        <input type="number" value="2" min="1">
+                        <input type="number" value="{{$phone['quantity']}}" min="1">
                     </td>
                     <td style="text-align: center">
-                        20.900.000đ
+                        {{number_format($phone['phone_price']*$phone['quantity'])}}đ
+                        
                     </td>
+                  
                 </tr>
-                <tr>
-                    <th scope="row">
-                        <img src="img/home/taiNgheBluetooth.jpeg" style="width:150px">
-                    </th>
-                    <td>iphone 13 mini 5G 128GB</td>
-                    <td style="color: red">20.900.000đ</td>
-                    <td>
-                        <input type="number" value="2" min="1">
-                    </td>
-                    <td style="text-align: center">
-                        20.900.000đ
-                    </td>
-                </tr>
+                @endforeach
+               
             </tbody>
         </table>
     </div>

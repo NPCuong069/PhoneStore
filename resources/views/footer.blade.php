@@ -10,15 +10,16 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="{{ URL::asset('../css/footer.css') }}">
 </head>
-@section('footer')
+
 <body style="line-height: 2.5;">
-    <footer class="container-fluid">
+    <footer class="container-fluid" style="padding-right: 0px;padding-left: 27px; margin-top: 50px">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-3 block-c-1">
-                    <img src="../css/imgHeaderFooter/screenshot_1650441246.png" alt="logo" width="70px" height="55px">
+                <div class="col-lg-3 block-c-1"> 
+                    <!-- lg dành cho pc và lap -->
+                    <img src="{{ URL::asset('css/imgHeaderFooter/screenshot_1650441246.png') }}" alt="logo" width="70px" height="55px">
                     <p>Shop chúng tôi là cửa hàng luôn xem quý khách là Thượng Đế / Shop chúng tôi chỉ cung cấp hàng chất lượng cao</p>
                     <i class="fab fa-facebook-f" style="background-color: #4267B2; padding: 5px 10px"></i>
                     <i class="fab fa-instagram" style="background-color: #3b6994; padding: 5px 8px;"></i>
@@ -71,7 +72,7 @@
                     </div>
                     <div class="row blockB">
                         <p class="sup">Website cùng tập đoàn</p>
-                        <div><img src="../css/imgHeaderFooter/screenshot_1650441247.png" alt="img"></div>
+                        <div><img src="{{ URL::asset('css/imgHeaderFooter/screenshot_1650441247.png') }}" alt="img"></div>
                     </div>
                 </div>
             </div>
@@ -82,7 +83,6 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    @endsection
 </body>
 
 </html>

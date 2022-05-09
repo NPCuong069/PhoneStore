@@ -4,6 +4,8 @@ use App\Http\Controllers\AccessoryController;
 use App\Http\Controllers\AccessoryControllerWeb;
 use App\Http\Controllers\AdminControllerWeb;
 use App\Http\Controllers\AuthControllerWeb;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\PhoneController;
 use App\Http\Controllers\PhoneControllerWeb;
@@ -30,11 +32,16 @@ Route::post('/image',[ImageController::class,'upload'])->name('upload.base64');
 Route::get('/home', function () {
     return view('home');
 });
-
+Route::get('/home', [HomeController::class, 'index']);
+Route::get('/cartCustomer', [CartController::class, 'currentCart'])->name('customerCart');
+Route::get('/addPhoneToCart', [CartController::class, 'addToCart'])->name('addPhoneToCart');
+Route::get('/addAccessoryToCart', [CartController::class, 'addToCart'])->name('addAccessoryToCart');
+Route::get('/phoneDetails', [PhoneControllerWeb::class, 'show'])->name('phoneDetail');
+Route::get('/accessoryDetails', [AccessoryControllerWeb::class, 'show'])->name('accessoryDetail');
 //Cart
-Route::get('/cart', function () {
-    return view('cart');
-});
+// Route::get('/cart', function () {
+//     return view('cart');
+// });
 //Admin
 Route::group(['middleware' => ['admin']], function() {
     Route::get('/admin', [AdminControllerWeb::class, 'index']);
@@ -82,26 +89,30 @@ Route::get('/mainHome', function () {
 });
 
 //Product Page
-Route::get('/phone', function () {
+Route::get('/phoneIndex', function () {
     return view('Customer/phone');
+});
+
+
+Route::get('/accessoryIndex', function () {
+    return view('Customer/accessory');
 });
 
 Route::get('/phoneDetail', function () {
     return view('Customer/phone-detail');
 });
 
-Route::get('/accessory', function () {
-    return view('Customer/accessory');
-});
-
 Route::get('/accessoryDetail', function () {
     return view('Customer/accessory-detail');
 });
 
-Route::get('/cartCustomer', function () {
-    return view('Customer/cart');
-});
+// Route::get('/cartCustomer', function () {
+//     return view('Customer/cart');
+// });
 
 Route::get('/shoppingHistory', function () {
     return view('Customer/shopping-history');
+});
+Route::get('/aboutUs', function () {
+    return view('Customer/AboutUs');
 });

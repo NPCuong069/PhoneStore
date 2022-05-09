@@ -1,0 +1,119 @@
+/* khoi slide và nut-slide */
+.khoi-slide {
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+}
+
+.cac-slide {
+    width: 500%;
+    /* 500 mới di chuyển hết hình*/
+    height: 500px;
+    display: flex;
+}
+
+.cac-slide input {
+    display: none;
+}
+
+.slide {
+    width: 20%;
+    transition: 1.5s;
+}
+
+.cac-slide img {
+    width: 100%;
+    height: 600px;
+    vertical-align: middle;
+}
+
+/* css for manual slide navigation */
+.navigation-manual {
+    position: absolute;
+    width: 100%;
+    margin-top: -50px;
+    display: flex;
+    justify-content: center;
+}
+
+.manual-btn {
+    border: 2px solid white;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: 1s;
+}
+
+.manual-btn:not(:last-child) {
+    /* là :not()-loại trừ phần tử được chuyển đến nó khỏi lựa chọn.; last-child- chọn con cuối cùng.<:not(:last-child) là Kết hợp hai bộ chọn trên để loại trừ các con cuối cùng (bên trong-div) của mọi div cha khỏi vùng chọn. >*/
+    margin-right: -35px;
+}
+
+.manual-btn:hover {
+    background: rgb(206, 152, 4);
+}
+
+#radio2:checked~.first {
+    margin-left: 0%;
+}
+
+#radio1:checked~.first {
+    margin-left: -20%;
+}
+
+/* css for automatic navigation */
+.navigation-auto {
+    position: absolute;
+    display: flex;
+    cursor: pointer;
+    width: 100%;
+    justify-content: center;
+    margin-top: 450px;
+}
+
+.navigation-auto div {
+    border: 2px solid white;
+    padding: 5px;
+    border-radius: 10px;
+    transition: 1s;
+}
+
+.navigation-auto div:not(:last-child) {
+    margin-right: -35px;
+}
+
+#radio1:checked~.navigation-auto .auto-btn1 {
+    background: rgb(206, 152, 4);
+}
+
+#radio2:checked~.navigation-auto .auto-btn2 {
+    background: rgb(206, 152, 4);
+}
+
+/* ----------------------------- */
+/* body 2  */
+div.table {
+    width: 20%;
+    text-align: center;
+    background-color: white;
+    border-radius: 10px;
+    margin: 0px 80px;
+    padding: 50px 30px;
+    /* margin-top: -30px; */
+    box-shadow: 20px 20px 10px grey;
+}
+
+section.row {
+    display: flex;
+    position: relative;
+
+}
+
+.table i {
+    font-size: 30px;
+    border: 2px solid rgb(206, 152, 4);
+    padding: 8px 8px;
+    border-radius: 50%;
+    color: rgb(206, 152, 4);
+}
+/* ------ */

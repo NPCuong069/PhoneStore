@@ -22,7 +22,7 @@ body {
   .top-bar ul li a {
     padding: 0px 10px;
     margin: 0px 2px;
-    margin-left: 20px; /*này làm cho hết cụm đó thụt vào*/
+    margin-left: 10px; /*này làm cho hết cụm đó thụt vào*/
   }
   .top-bar-1 a {
     border-left: 1px solid white;
