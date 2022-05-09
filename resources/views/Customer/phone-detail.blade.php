@@ -10,7 +10,7 @@
         <div class="row">
             <div class="col-6">
                 <div class="showImage">
-                    <img src="img/home/homeProduct1.jpg" width="110%"/>
+                    <img src="img/home/homeProduct1.jpg" width="500px"/>
                 </div>
             </div>
 

@@ -51,7 +51,9 @@
   <div class="row">                
       <div class="content col-12">
         <div class="homepage-category-line">
+        <a href="/phone">
           <h2 class="title">Điện thoại</h2>
+        </a>
         </div>
       </div>
   </div>
@@ -71,26 +73,94 @@
     </div>
     @endforeach
 
+    <div class="col-3">
+      <div class="item">
+        <a href="/phoneDetail">
+          <img src="img/home/homeProduct1.jpg" style="width:300px;">
+        </a>
+        <a href="/phoneDetail" class="product-title">iphone 13 mini 5G 128GB</a>
+        <p class="price">20.900.000đ</p>
+      </div>
+    </div>
+
+    <div class="col-3">
+      <div class="item">
+        <a href="/phoneDetail">
+          <img src="img/home/homeProduct1.jpg" style="width:300px;">
+        </a>
+        <a href="/phoneDetail" class="product-title">iphone 13 mini 5G 128GB</a>
+        <p class="price">20.900.000đ</p>
+      </div>
+    </div>
+
+    <div class="col-3">
+      <div class="item">
+        <a href="/phoneDetail">
+          <img src="img/home/homeProduct1.jpg" style="width:300px;">
+        </a>
+        <a href="/phoneDetail" class="product-title">iphone 13 mini 5G 128GB</a>
+        <p class="price">20.900.000đ</p>
+      </div>
+    </div>
+  </div>
 
   <!--Title accessory-->
   <div class="row">                
       <div class="content col-12">
         <div class="homepage-category-line">
-          <h2 class="title">Phụ kiện</h2>
+          <a href="/accessory">
+            <h2 class="title">Phụ kiện</h2>
+          </a>
         </div>
       </div>
   </div>
 
+
+  {{-- <a href="{{ route('accessoryDetail', ['id' => $accessory->id]) }}">
+    <img src="http://localhost:8000/storage/images/{{$accessory->accessory_image}}">
+  </a>
+  <a href="{{ route('accessoryDetail', ['id' => $accessory->id]) }}" class="product-title">{{$accessory->accesory_name}}</a>
+  <p class="price">{{number_format($accessory->accesory_price)}}đ</p> --}}
   <!--Show product phone-->
   <div class="row">
     @foreach ($accessories as $accessory)
     <div class="col-3">
       <div class="item">
-        <a href="{{ route('accessoryDetail', ['id' => $accessory->id]) }}">
-          <img src="http://localhost:8000/storage/images/{{$accessory->accessory_image}}">
+        <a href="/accessoryDetail">
+          <img src="img/home/taiNgheBluetooth.jpeg" style="width:300px;">
         </a>
-        <a href="{{ route('accessoryDetail', ['id' => $accessory->id]) }}" class="product-title">{{$accessory->accesory_name}}</a>
-        <p class="price">{{number_format($accessory->accesory_price)}}đ</p>
+        <a href="/phoneDetail" class="product-title">iphone 13 mini 5G 128GB</a>
+        <p class="price">20.900.000đ</p>
+      </div>
+    </div>
+
+    <div class="col-3">
+      <div class="item">
+        <a href="/accessoryDetail">
+          <img src="img/home/taiNgheBluetooth.jpeg" style="width:300px;">
+        </a>
+        <a href="/phoneDetail" class="product-title">iphone 13 mini 5G 128GB</a>
+        <p class="price">20.900.000đ</p>
+      </div>
+    </div>
+
+    <div class="col-3">
+      <div class="item">
+        <a href="/accessoryDetail">
+          <img src="img/home/taiNgheBluetooth.jpeg" style="width:300px;">
+        </a>
+        <a href="/phoneDetail" class="product-title">iphone 13 mini 5G 128GB</a>
+        <p class="price">20.900.000đ</p>
+      </div>
+    </div>
+
+    <div class="col-3">
+      <div class="item">
+        <a href="/accessoryDetail">
+          <img src="img/home/taiNgheBluetooth.jpeg" style="width:300px;">
+        </a>
+        <a href="/phoneDetail" class="product-title">iphone 13 mini 5G 128GB</a>
+        <p class="price">20.900.000đ</p>
       </div>
     </div>
     @endforeach
