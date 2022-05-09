@@ -50,7 +50,9 @@
   <div class="row">                
       <div class="content col-12">
         <div class="homepage-category-line">
+        <a href="/phone">
           <h2 class="title">Điện thoại</h2>
+        </a>
         </div>
       </div>
   </div>
@@ -60,7 +62,7 @@
     <div class="col-3">
       <div class="item">
         <a href="/phoneDetail">
-          <img src="img/home/homeProduct1.jpg">
+          <img src="img/home/homeProduct1.jpg" style="width:300px;">
         </a>
         <a href="/phoneDetail" class="product-title">iphone 13 mini 5G 128GB</a>
         <p class="price">20.900.000đ</p>
@@ -70,7 +72,7 @@
     <div class="col-3">
       <div class="item">
         <a href="/phoneDetail">
-          <img src="img/home/homeProduct1.jpg">
+          <img src="img/home/homeProduct1.jpg" style="width:300px;">
         </a>
         <a href="/phoneDetail" class="product-title">iphone 13 mini 5G 128GB</a>
         <p class="price">20.900.000đ</p>
@@ -80,7 +82,7 @@
     <div class="col-3">
       <div class="item">
         <a href="/phoneDetail">
-          <img src="img/home/homeProduct1.jpg">
+          <img src="img/home/homeProduct1.jpg" style="width:300px;">
         </a>
         <a href="/phoneDetail" class="product-title">iphone 13 mini 5G 128GB</a>
         <p class="price">20.900.000đ</p>
@@ -90,7 +92,7 @@
     <div class="col-3">
       <div class="item">
         <a href="/phoneDetail">
-          <img src="img/home/homeProduct1.jpg">
+          <img src="img/home/homeProduct1.jpg" style="width:300px;">
         </a>
         <a href="/phoneDetail" class="product-title">iphone 13 mini 5G 128GB</a>
         <p class="price">20.900.000đ</p>
@@ -102,7 +104,9 @@
   <div class="row">                
       <div class="content col-12">
         <div class="homepage-category-line">
-          <h2 class="title">Phụ kiện</h2>
+          <a href="/accessory">
+            <h2 class="title">Phụ kiện</h2>
+          </a>
         </div>
       </div>
   </div>
@@ -112,7 +116,7 @@
     <div class="col-3">
       <div class="item">
         <a href="/accessoryDetail">
-          <img src="img/home/taiNgheBluetooth.jpeg">
+          <img src="img/home/taiNgheBluetooth.jpeg" style="width:300px;">
         </a>
         <a href="/phoneDetail" class="product-title">iphone 13 mini 5G 128GB</a>
         <p class="price">20.900.000đ</p>
@@ -122,7 +126,7 @@
     <div class="col-3">
       <div class="item">
         <a href="/accessoryDetail">
-          <img src="img/home/taiNgheBluetooth.jpeg">
+          <img src="img/home/taiNgheBluetooth.jpeg" style="width:300px;">
         </a>
         <a href="/phoneDetail" class="product-title">iphone 13 mini 5G 128GB</a>
         <p class="price">20.900.000đ</p>
@@ -132,7 +136,7 @@
     <div class="col-3">
       <div class="item">
         <a href="/accessoryDetail">
-          <img src="img/home/taiNgheBluetooth.jpeg">
+          <img src="img/home/taiNgheBluetooth.jpeg" style="width:300px;">
         </a>
         <a href="/phoneDetail" class="product-title">iphone 13 mini 5G 128GB</a>
         <p class="price">20.900.000đ</p>
@@ -142,7 +146,7 @@
     <div class="col-3">
       <div class="item">
         <a href="/accessoryDetail">
-          <img src="img/home/taiNgheBluetooth.jpeg">
+          <img src="img/home/taiNgheBluetooth.jpeg" style="width:300px;">
         </a>
         <a href="/phoneDetail" class="product-title">iphone 13 mini 5G 128GB</a>
         <p class="price">20.900.000đ</p>
