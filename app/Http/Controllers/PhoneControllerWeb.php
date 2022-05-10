@@ -40,6 +40,11 @@ class PhoneControllerWeb extends Controller
         $brand = Brand::all();
         return view('Phone/showPhone',['datas' => $data,'brands'=>$brand]);
     }
+    public function customerIndex(){
+        $data = Phone::paginate(12);
+        $brand = Brand::all();
+        return view('Customer/phone',['datas' => $data,'brands'=>$brand]);
+    }
 
     public function show(Request $request)
     {

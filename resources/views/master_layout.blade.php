@@ -145,5 +145,105 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $.ajaxSetup({
+        headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+        });
+        $(document).ready(function () {
+        $('#category').on('change',function(e) {
+            
+        var matp = e.target.value;
+        $.ajax({
+        url:"/subCat",
+        type:"POST",
+        data: {
+        matp: matp
+        },
+        success:function (data) {
+        $('#subcategory').empty();
+    
+        $.each(data.subcategories,function(index,subcategory){
+        $('#subcategory').append('<option value="'+subcategory.matp+'">'+subcategory.name+'</option>');
+        })
+        }
+        })
+        });
+        });
+    
+            $(document).ready(function () {
+            $('#subcategory').on('change',function(e) {
+            var maqh = e.target.value;
+          
+        
+            $.ajax({
+            url:"/subCat2",
+            type:"POST",
+            data: {
+            maqh: maqh
+            },
+            success:function (data) {
+                console.log(data);
+            $('#subcategory2').empty();
+                
+            $.each(data.subcategories2,function(index,subcategory){
+            $('#subcategory2').append('<option value="'+subcategory.maqh+'">'+subcategory.name+'</option>');
+            })
+            }
+            })
+            });
+            });
+            </script>   
 </body>
 </html>
+<script type="text/javascript">
+    $.ajaxSetup({
+    headers: {
+    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+    });
+    $(document).ready(function () {
+    $('#category').on('change',function(e) {
+        
+    var matp = e.target.value;
+    $.ajax({
+    url:"/subCat",
+    type:"POST",
+    data: {
+    matp: matp
+    },
+    success:function (data) {
+    $('#subcategory').empty();
+
+    $.each(data.subcategories,function(index,subcategory){
+    $('#subcategory').append('<option value="'+subcategory.matp+'">'+subcategory.name+'</option>');
+    })
+    }
+    })
+    });
+    });
+
+        $(document).ready(function () {
+        $('#subcategory').on('change',function(e) {
+        var maqh = e.target.value;
+      
+    
+        $.ajax({
+        url:"/subCat2",
+        type:"POST",
+        data: {
+        maqh: maqh
+        },
+        success:function (data) {
+            console.log(data);
+        $('#subcategory2').empty();
+            
+        $.each(data.subcategories2,function(index,subcategory){
+        $('#subcategory2').append('<option value="'+subcategory.maqh+'">'+subcategory.name+'</option>');
+        })
+        }
+        })
+        });
+        });
+        </script>

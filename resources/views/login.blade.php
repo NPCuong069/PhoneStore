@@ -52,9 +52,8 @@
     });
     $(document).ready(function () {
     $('#category').on('change',function(e) {
+        
     var matp = e.target.value;
-  
-
     $.ajax({
     url:"/subCat",
     type:"POST",
@@ -63,7 +62,7 @@
     },
     success:function (data) {
     $('#subcategory').empty();
-    console.log(data);
+
     $.each(data.subcategories,function(index,subcategory){
     $('#subcategory').append('<option value="'+subcategory.matp+'">'+subcategory.name+'</option>');
     })
@@ -86,7 +85,7 @@
         success:function (data) {
             console.log(data);
         $('#subcategory2').empty();
-    
+            
         $.each(data.subcategories2,function(index,subcategory){
         $('#subcategory2').append('<option value="'+subcategory.maqh+'">'+subcategory.name+'</option>');
         })

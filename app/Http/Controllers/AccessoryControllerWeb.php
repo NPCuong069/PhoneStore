@@ -47,6 +47,11 @@ class AccessoryControllerWeb extends Controller
         $brand = Brand::all();
         return view('Customer/accessory-detail',['data' => $data,'brands'=>$brand]);
     }
+    public function customerIndex(){
+        $data = Accessory::paginate(12);
+        $brand = Brand::all();
+        return view('Customer/accessory',['datas' => $data,'brands'=>$brand]);
+    }
     public function destroy($id)
     {
         $phone = Accessory::find($id);

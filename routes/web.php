@@ -9,6 +9,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\PhoneController;
 use App\Http\Controllers\PhoneControllerWeb;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,9 +27,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/showPhone', [PhoneControllerWeb::class, 'index']);
+
 Route::get('/login', [AdminControllerWeb::class, 'show']);
 Route::post('/login', [AdminControllerWeb::class, 'customLogin']);
 Route::post('/image',[ImageController::class,'upload'])->name('upload.base64');
+Route::get('/orderInfo', [CartController::class, 'orderInfo']);
+Route::post('/subCat', [UserController::class, 'subCat']);
+Route::post('/subCat2', [UserController::class, 'subCat2']);
+Route::post('/payment', [CartController::class, 'payment']);
 Route::get('/home', function () {
     return view('home');
 });
@@ -37,6 +43,8 @@ Route::get('/cartCustomer', [CartController::class, 'currentCart'])->name('custo
 Route::get('/addPhoneToCart', [CartController::class, 'addToCart'])->name('addPhoneToCart');
 Route::get('/addAccessoryToCart', [CartController::class, 'addToCart'])->name('addAccessoryToCart');
 Route::get('/phoneDetails', [PhoneControllerWeb::class, 'show'])->name('phoneDetail');
+Route::get('/phoneIndex', [PhoneControllerWeb::class, 'customerIndex'])->name('customerPhoneIndex');
+Route::get('/accessoryIndex', [AccessoryControllerWeb::class, 'customerIndex'])->name('customerAccessoryIndex');
 Route::get('/accessoryDetails', [AccessoryControllerWeb::class, 'show'])->name('accessoryDetail');
 //Cart
 // Route::get('/cart', function () {
@@ -88,28 +96,19 @@ Route::get('/mainHome', function () {
     return view('home');
 });
 
-//Product Page
-Route::get('/phoneIndex', function () {
-    return view('Customer/phone');
-});
-
-
-Route::get('/accessoryIndex', function () {
-    return view('Customer/accessory');
-});
-
-Route::get('/phoneDetail', function () {
-    return view('Customer/phone-detail');
-});
-
-Route::get('/accessoryDetail', function () {
-    return view('Customer/accessory-detail');
-});
-
-// Route::get('/cartCustomer', function () {
-//     return view('Customer/cart');
+// //Product Page
+// Route::get('/phoneIndex', function () {
+//     return view('Customer/phone');
 // });
 
+
+// Route::get('/accessoryIndex', function () {
+//     return view('Customer/accessory');
+// });
+
+// Route::get('/orderInfo', function () {
+//     return view('Customer/orderInformation');
+// });
 Route::get('/shoppingHistory', function () {
     return view('Customer/shopping-history');
 });

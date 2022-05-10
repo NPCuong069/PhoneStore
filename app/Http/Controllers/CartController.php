@@ -7,8 +7,10 @@ use App\Models\Cart;
 use App\Models\Phone;
 use App\Models\Accessory;
 use App\Models\Brand;
+use App\Models\CartItem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\DB;
 
 class CartController extends Controller
 {
@@ -27,6 +29,7 @@ class CartController extends Controller
         $program = Cart::find($id);
         if (is_null($program)) {
             return response()->json('Data not found', 404); 
+
         }
         return response()->json([new CartResource($program)]);
     }
@@ -44,10 +47,10 @@ class CartController extends Controller
     }
     public function currentCart(Request $request){
         $cart = session()->get('cart');
-        $phones=null;
-        $accessories=null;
+        $phones=[];
+        $accessories=[];
         if($cart){
-            if($cart['phone']){
+            if(isset($cart['phone'])){
                 foreach ($cart['phone'] as $phone){
 
                     $id =$phone['id'];
@@ -60,7 +63,7 @@ class CartController extends Controller
                     ];
                 }
             }
-            if($cart['accessory']){
+            if(isset($cart['accessory'])){
                 foreach ($cart['accessory'] as $accessory){
 
                     $id =$accessory['id'];
@@ -148,5 +151,63 @@ class CartController extends Controller
 
 
         return redirect()->back()->with('success', 'Product added to cart successfully!');
+    }
+    public function orderInfo(Request $request)
+    {
+        // $data= DB::select('call quanbythanhpho("1")');
+        $data= DB::table('devvn_tinhthanhpho')->get();
+
+        return view ('Customer/orderInformation',['data'=>$data]);
+        
+    }
+    public function payment(Request $request)
+    {
+        $this->validate($request, [
+            'card_no' => 'required',
+            'expiry_month' => 'required',
+            'expiry_year' => 'required',
+            'cvv' => 'required',
+            'cart_address'=>'required',
+            'phone'=>'required'
+        ]);
+        $data= $request->only('cart_name','cart_address','phone');
+        $cartData = Cart::create($data);
+        $cart = session()->get('cart');
+        if(isset($cart['phone'])){
+            foreach ($cart['phone'] as $phone){
+
+                $id =$phone['id'];
+                $currentPhone = Phone::find($id);
+                $phones[$id]=[
+                    'phone_name'=>$currentPhone->phone_name,
+                    'quantity'=>$phone['quantity'],
+                    'phone_price'=>$currentPhone->phone_price,
+                    'phone_image'=>$currentPhone->phone_image
+                ];
+                CartItem::create([
+                    'cart_id'=>$cartData->id,
+                    'phone_id'=>$currentPhone->id,
+                    'quantity'=>$phone['quantity']
+                ]);
+            }
+        }
+        if(isset($cart['accessory'])){
+            foreach ($cart['accessory'] as $accessory){
+
+                $id =$accessory['id'];
+                $currentAccessory = Accessory::find($id);
+                $accessories[$id]=[
+                    'phone_name'=>$currentAccessory->accesory_name,
+                    'quantity'=>$accessory['quantity'],
+                    'phone_price'=>$currentAccessory->accesory_price,
+                    'phone_image'=>$currentAccessory->accessory_image
+                ];
+                CartItem::create([
+                    'cart_id'=>$cartData->id,
+                    'phone_id'=>$currentAccessory->id,
+                    'quantity'=>$accessories['quantity']
+                ]);
+            }
+        }
     }
 }

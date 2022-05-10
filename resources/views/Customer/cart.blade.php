@@ -27,7 +27,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($phones as $phone)
+                @forelse($phones as $phone)
                 <tr>
                     <th scope="row">
                         <img src="http://localhost:8000/storage/images/{{$phone['phone_image']}}" style="width:150px">
@@ -43,8 +43,10 @@
                     </td>
                   
                 </tr>
-                @endforeach
-                @foreach($accessories as $phone)
+                @empty
+ 
+                @endforelse
+                @forelse($accessories as $phone)
                 <tr>
                     <th scope="row">
                         <img src="http://localhost:8000/storage/images/{{$phone['phone_image']}}" style="width:150px">
@@ -60,7 +62,9 @@
                     </td>
                   
                 </tr>
-                @endforeach
+                @empty
+
+                @endforelse
                
             </tbody>
         </table>

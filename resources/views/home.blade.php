@@ -51,7 +51,7 @@
   <div class="row">                
       <div class="content col-12">
         <div class="homepage-category-line">
-        <a href="/phone">
+        <a href="/phoneIndex">
           <h2 class="title">Điện thoại</h2>
         </a>
         </div>
@@ -64,7 +64,7 @@
     <div class="col-3">
       <div class="item">
         <a href="{{ route('phoneDetail', ['id' => $phone->id]) }}">
-          <img src="http://localhost:8000/storage/images/{{$phone->phone_image}}">
+          <img src="http://localhost:8000/storage/images/{{$phone->phone_image}}" style="width:200px;height:200px">
         </a>
         <a href="/phoneDetail" class="product-title">{{$phone->phone_name}}</a>
         <p class="price">{{number_format($phone->phone_price)}}đ</p>
@@ -72,43 +72,13 @@
       {{-- {{dd(session()->all());}} --}}
     </div>
     @endforeach
-
-    <div class="col-3">
-      <div class="item">
-        <a href="/phoneDetail">
-          <img src="img/home/homeProduct1.jpg" style="width:300px;">
-        </a>
-        <a href="/phoneDetail" class="product-title">iphone 13 mini 5G 128GB</a>
-        <p class="price">20.900.000đ</p>
-      </div>
-    </div>
-
-    <div class="col-3">
-      <div class="item">
-        <a href="/phoneDetail">
-          <img src="img/home/homeProduct1.jpg" style="width:300px;">
-        </a>
-        <a href="/phoneDetail" class="product-title">iphone 13 mini 5G 128GB</a>
-        <p class="price">20.900.000đ</p>
-      </div>
-    </div>
-
-    <div class="col-3">
-      <div class="item">
-        <a href="/phoneDetail">
-          <img src="img/home/homeProduct1.jpg" style="width:300px;">
-        </a>
-        <a href="/phoneDetail" class="product-title">iphone 13 mini 5G 128GB</a>
-        <p class="price">20.900.000đ</p>
-      </div>
-    </div>
   </div>
 
   <!--Title accessory-->
   <div class="row">                
       <div class="content col-12">
         <div class="homepage-category-line">
-          <a href="/accessory">
+          <a href="/accessoryIndex">
             <h2 class="title">Phụ kiện</h2>
           </a>
         </div>
@@ -116,53 +86,21 @@
   </div>
 
 
-  {{-- <a href="{{ route('accessoryDetail', ['id' => $accessory->id]) }}">
-    <img src="http://localhost:8000/storage/images/{{$accessory->accessory_image}}">
-  </a>
-  <a href="{{ route('accessoryDetail', ['id' => $accessory->id]) }}" class="product-title">{{$accessory->accesory_name}}</a>
-  <p class="price">{{number_format($accessory->accesory_price)}}đ</p> --}}
+
   <!--Show product phone-->
   <div class="row">
     @foreach ($accessories as $accessory)
     <div class="col-3">
       <div class="item">
-        <a href="/accessoryDetail">
-          <img src="img/home/taiNgheBluetooth.jpeg" style="width:300px;">
+        <a href="{{ route('accessoryDetail', ['id' => $accessory->id]) }}">
+          <img src="http://localhost:8000/storage/images/{{$accessory->accessory_image}}"style="width:200px;height:200px">
         </a>
-        <a href="/phoneDetail" class="product-title">iphone 13 mini 5G 128GB</a>
-        <p class="price">20.900.000đ</p>
+        <a href="{{ route('accessoryDetail', ['id' => $accessory->id]) }}" class="product-title">{{$accessory->accesory_name}}</a>
+        <p class="price">{{number_format($accessory->accesory_price)}}đ</p>
       </div>
     </div>
 
-    <div class="col-3">
-      <div class="item">
-        <a href="/accessoryDetail">
-          <img src="img/home/taiNgheBluetooth.jpeg" style="width:300px;">
-        </a>
-        <a href="/phoneDetail" class="product-title">iphone 13 mini 5G 128GB</a>
-        <p class="price">20.900.000đ</p>
-      </div>
-    </div>
-
-    <div class="col-3">
-      <div class="item">
-        <a href="/accessoryDetail">
-          <img src="img/home/taiNgheBluetooth.jpeg" style="width:300px;">
-        </a>
-        <a href="/phoneDetail" class="product-title">iphone 13 mini 5G 128GB</a>
-        <p class="price">20.900.000đ</p>
-      </div>
-    </div>
-
-    <div class="col-3">
-      <div class="item">
-        <a href="/accessoryDetail">
-          <img src="img/home/taiNgheBluetooth.jpeg" style="width:300px;">
-        </a>
-        <a href="/phoneDetail" class="product-title">iphone 13 mini 5G 128GB</a>
-        <p class="price">20.900.000đ</p>
-      </div>
-    </div>
+   
     @endforeach
   </div>
 
