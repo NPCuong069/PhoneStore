@@ -22,7 +22,7 @@ class PhoneControllerWeb extends Controller
     public function store(Request $request){
         $request->validate([
             'phone_name'=>'required',
-            'phone_price'=>'required|numeric',
+            'phone_price'=>'required|numeric|min:1',
             'phone_details'=>'required',
             'brand_id'=>'required',
             'image'=>'required|mimes:jpg,png,jpeg|max:5000'
@@ -57,6 +57,7 @@ class PhoneControllerWeb extends Controller
         $brand = Brand::all();
         return view('Customer/phone',['datas' => $data,'brands'=>$brand]);
     }
+    
     public function show(Request $request)
     {
         $phone = Phone::find($request->id);
@@ -75,7 +76,7 @@ class PhoneControllerWeb extends Controller
     {                       
         $request->validate([
             'phone_name'=>'required',
-            'phone_price'=>'required|numeric',
+            'phone_price'=>'required|numeric|min:1',
             'phone_details'=>'required',
             'brand_id'=>'required',
         ]);           

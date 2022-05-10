@@ -224,7 +224,7 @@ class CartController extends Controller
             'cart_address'=>'required',
             'phone'=>'required'
         ]);
-        $data= $request->only('cart_name','cart_address','phone','cart_price');
+        $data= $request->only('cart_name','cart_address','phone','cart_price','matp','maqh','xaid');
         $cartData = Cart::create($data);
         $cart = session()->get('cart');
         if(isset($cart['phone'])){
@@ -264,5 +264,6 @@ class CartController extends Controller
                 ]);
             }
         }
+        return view('Customer/phone-history')->with('message', 'Thanh toán thành công!');;
     }
 }

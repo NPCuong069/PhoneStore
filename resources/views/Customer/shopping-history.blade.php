@@ -8,6 +8,7 @@
 
 <div class="container">
     <!---Title cart-->
+
     <div class="row">
         <div class="col-12">
             <h2 style="color: #3C63A4; text-align: center"><b>Lịch sử đơn hàng</b></h2>
@@ -26,23 +27,23 @@
         <div class="content">
             <div class="row">
                 <div class="col-2">
-                    <p class="text">Tên khách hàng</p>
+                    <p class="text"><b>Tên khách hàng</b></p>
                 </div>
            
                 <div class="col-2">
-                    <p class="text">Ngày đặt đơn</p>
+                    <p class="text"><b>Ngày đặt đơn</b></p>
                 </div>
     
                 <div class="col-2">
-                    <p class="text">Tổng thanh toán</p>
+                    <p class="text"><b>Tổng thanh toán</b></p>
                 </div>
     
                 <!--Button-->
                 <div class="col-3">
-                    <p class="text">Tình trạng đơn hàng</p>
+                    <p class="text"><b>Tình trạng đơn hàng</b></p>
                 </div>
                 <div class="col-3">
-                    <p class="text">Địa chỉ giao hàng</p>
+                    <p class="text"><b>Địa chỉ giao hàng</b></p>
                 </div>
             </div>
             <div class="row">

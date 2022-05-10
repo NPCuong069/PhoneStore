@@ -8,6 +8,11 @@
 
 <div class="container">
     <!---Title cart-->
+        @if(session()->has('message'))
+    <div class="alert alert-success">
+        {{ session()->get('message') }}
+    </div>
+@endif
     <div class="row">
         <div class="col-12">
             <h2 style="color: #3C63A4; text-align: center"><b>Vui lòng nhập số điện thoại</b></h2>

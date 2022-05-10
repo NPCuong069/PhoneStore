@@ -290,11 +290,6 @@ return [
             'url'  => '/cart',
             'icon' => 'fas fa-fw fa-shopping-cart',
         ],
-        [
-            'text' => 'Image',
-            'url'  => '/image',
-            'icon' => 'fas fa-fw fa-images',
-        ], 
     ],
 
     /*

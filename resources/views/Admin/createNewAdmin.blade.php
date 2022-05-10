@@ -3,7 +3,7 @@
 @section('title', 'Admin Page')
 
 @section('content_header')
-    <h1 style="text-align:center;font-family:Calibri; font-size: 40px;">Create New Admin</h1>
+    <h1 style="text-align:center;font-family:Calibri; font-size: 40px;">Create New Employee</h1>
 @stop
 
 @section('content')

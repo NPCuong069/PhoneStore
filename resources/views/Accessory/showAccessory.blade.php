@@ -39,7 +39,7 @@
       <td style="text-align:center;">
         <a type="button" class="btn btn-warning" href="{{route('accessory.edit',$data->id)}}">Update</a>
         <br><br>
-        <form action="{{ route('phone.destroy',$data->id) }}" method="POST">
+        <form action="{{ route('phone.destroy',['id'=>$id]) }}" method="POST">
         @csrf
         @method('DELETE')
         <button type="submit" class="btn btn-danger">Delete</button>

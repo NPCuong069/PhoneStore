@@ -26,10 +26,24 @@
     <td style="text-align:center;">{{$data->email}}</td>
     <td style="text-align:center;">{{$data->role==0?"Admin":"Employee"}}</td>
     <td style="text-align:center;">
+      <div class="row">
       @if($data->role==1)
-      <a type="button" class="btn btn-warning" href="{{ url('/updateAdmin')}}">Update</a>
-      <a type="button" class="btn btn-danger">Delete</a>
+      <div class="col-4">
+      </div>
+        <div class="col-2">
+        <a type="button" class="btn btn-warning" href="{{route('admin.edit',['id'=>$data->id])}}">Update</a>
+        </div>
+        <div class="col-1">
+        <form action="{{route('admin.delete',['id'=>$data->id])}}" method="POST">
+          @csrf
+          @method('DELETE')
+          <button type="submit" class="btn btn-danger" >Delete</button>
+        </form>
+      </div>
+     
+  
       @endif
+    </div>
   </td>
 </tr>
     

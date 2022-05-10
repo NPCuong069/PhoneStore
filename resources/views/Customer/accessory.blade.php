@@ -48,7 +48,7 @@
                       </a>
                       <a href="/phoneDetail" class="product-title">{{$data->accesory_name}}</a>
                       <p class="price">{{number_format($data->accesory_price)}}đ</p>
-                      <a type="button" class="btn btn-warning" href="/phoneDetail">
+                      <a type="button" class="btn btn-warning" href="{{ route('accessoryDetail', ['id' => $data->id]) }}">
                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                               class="bi bi-caret-down-square" viewBox="0 0 16 16">
                               <path

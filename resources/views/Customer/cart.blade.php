@@ -78,7 +78,7 @@
                 <span class="money"> {{number_format($total)}}đ </span>
             </div>
             <div class="buttonThanhToan">
-                <a type="button" class="btn btn-success" href="{{ route('orderClear') }}">Xoá giỏ hàng</a>
+                <a type="button" class="btn btn-success" href="{{ route('orderClear') }}" style="margin-left: 20px">Xoá giỏ hàng</a>
             </div>
             <div class="buttonThanhToan">
                 <a type="button" class="btn btn-success" href="{{ route('orderInfo', ['total' => $total]) }}">Tiến hành thanh toán</a>

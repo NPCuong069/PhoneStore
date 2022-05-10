@@ -27,7 +27,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/showPhone', [PhoneControllerWeb::class, 'index']);
-
+Route::get('/address', [UserController::class, 'login']);
 Route::get('/login', [AdminControllerWeb::class, 'show']);
 Route::post('/login', [AdminControllerWeb::class, 'customLogin']);
 Route::post('/image',[ImageController::class,'upload'])->name('upload.base64');
@@ -57,9 +57,12 @@ Route::get('/accessoryDetails', [AccessoryControllerWeb::class, 'show'])->name('
 // });
 //Admin
 Route::group(['middleware' => ['admin']], function() {
-    Route::get('/admin', [AdminControllerWeb::class, 'index']);
+    Route::get('/admin', [AdminControllerWeb::class, 'index'])->name('admin.index');
     Route::get('/admin/create', [AdminControllerWeb::class, 'registration']);
-    Route::post('/admin/create', [AdminControllerWeb::class, 'customRegistration'])->name('admin.customRegistration');;
+    Route::post('/admin/create', [AdminControllerWeb::class, 'customRegistration'])->name('admin.customRegistration');
+    Route::delete('/admin/delete', [AdminControllerWeb::class, 'delete'])->name('admin.delete');
+    Route::get('/admin/update', [AdminControllerWeb::class, 'edit'])->name('admin.edit');
+    Route::post('/admin/update', [AdminControllerWeb::class, 'update'])->name('admin.update');
 });
 
 Route::group(['middleware' => ['auth']], function() {

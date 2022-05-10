@@ -31,10 +31,31 @@ class AdminControllerWeb extends Controller
   
         return redirect("login")->withSuccess('Login details are not valid');
     }
-
+    public function edit(Request $request){
+        $user = User::find($request->id);
+        return view('admin.updateAdmin',['data'=>$user]);
+    }
+    public function update(Request $request){
+        $validator = $request->validate([
+            'name' => 'required|string|max:255',
+            'password' => 'required|string|min:8'
+        ]);
+        $user = User::find($request->id);
+        $request['password']=Hash::make($request->password);
+        $user -> update($request->all());
+        return redirect()->route('admin.index')
+        ->with('success','Admin deleted successfully');
+    }
     public function registration()
     {
         return view('admin.createNewAdmin');
+    }
+    public function delete(Request $request)
+    {
+        $user = User::find($request->id);
+        $user->delete();
+        return redirect()->route('admin.index')
+        ->with('success','Admin deleted successfully');
     }
       
     public function customRegistration(Request $request)
@@ -53,7 +74,8 @@ class AdminControllerWeb extends Controller
             'password_reset'=>0
          ]);
          
-        return redirect("phone")->withSuccess('New employee created successfully');
+         return redirect()->route('admin.index')
+        ->with('success','Admin deleted successfully');
     }
 
     public function index (){
@@ -65,26 +87,6 @@ class AdminControllerWeb extends Controller
         FacadesSession::flush();
         return Redirect('login');
     }
-    // public function login(LoginRequest $request)
-    // {
-    //     $credentials = $request->credentials();
 
-    //     if(!Auth::validate($credentials)):
-    //         return redirect()->route('phone')
-    //             ->withErrors(trans('auth.failed'));
-    //     endif;
-
-    //     $user = Auth::getProvider()->retrieveByCredentials($credentials);
-
-    //     Auth::login($user);
-
-    //     return $this->authenticated($request, $user);
-    // }
-
-    // public function index()
-    // {
-    //     return view('auth.login');
-    // }  
-      
    
 }
