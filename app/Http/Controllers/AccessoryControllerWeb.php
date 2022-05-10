@@ -15,12 +15,16 @@ class AccessoryControllerWeb extends Controller
         return view('accessory.createNewAccessory',['brands'=>$brands]);
     }
     public function edit($id){
-        $brands = Brand::all();
-        $phone = Accessory::find($id);
-        return view('accessory.updateAccessory', ['phone'=>$phone,'brands'=>$brands]);
+        $brands = Brand::all(); 
+        $accessory = Accessory::find($id);
+        return view('accessory.updateAccessory', ['accessory'=>$accessory,'brands'=>$brands]);
     }
     public function store(Request $request){
         $request->validate([
+            'accesory_name' => 'required',
+            'accesory_price' => 'required|numeric|min:1',
+            'accesory_details' => 'required',
+            'brand_id' => 'required',
             'image'=>'required|mimes:jpg,png,jpeg|max:5000'
         ]);
         $inputName =     str_replace(' ', '', $request->accesory_name);
@@ -52,6 +56,11 @@ class AccessoryControllerWeb extends Controller
         $brand = Brand::all();
         return view('Customer/accessory',['datas' => $data,'brands'=>$brand]);
     }
+    public function customerIndexByBrand(Request $request){
+        $data = Accessory::select()->where('brand_id',$request->brand)->get();
+        $brand = Brand::all();
+        return view('Customer/accessory',['datas' => $data,'brands'=>$brand]);
+    }
     public function destroy($id)
     {
         $phone = Accessory::find($id);
@@ -59,10 +68,16 @@ class AccessoryControllerWeb extends Controller
         return redirect()->route('phone.index')
         ->with('success','Product deleted successfully');
     }
-    public function update(Request $request,Accessory $phone)
+    public function update(Request $request,Accessory $accessory)
     {                                  
-        $phone->update($request->all());
-        return redirect()->route('phone.index')
-        ->with('success','Phone updated successfully');
+        $request->validate([
+            'accesory_name' => 'required',
+            'accesory_price' => 'required|numeric|min:1',
+            'accesory_details' => 'required',
+            'brand_id' => 'required',
+        ]);
+        $accessory->update($request->all());
+        return redirect()->route('accessory.index')
+        ->with('success','Accessory updated successfully');
     }
 }

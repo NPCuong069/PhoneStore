@@ -10,7 +10,7 @@
         <div class="row">
             <div class="col-6">
                 <div class="showImage">
-                    <img src="img/home/homeProduct1.jpg" width="500px"/>
+                    <img src="http://localhost:8000/storage/images/{{$phone->phone_image}}" width="500px"/>
                 </div>
             </div>
 

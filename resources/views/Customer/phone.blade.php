@@ -22,7 +22,7 @@
                 <ul class="menu-category">
                     @foreach ($brands as $brand)
                     <li>
-                        <a href="#">
+                        <a href="{{ route('customerPhoneIndexByBrand',['brand'=>$brand->id]) }}">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-arrow-right-short" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd"
@@ -43,12 +43,12 @@
                 @foreach ($datas as $data)
                 <div class="col-3" style="margin-top: 50px">
                     <div class="item">
-                        <a href="/phoneDetail">
+                        <a href="{{ route('phoneDetail', ['id' => $data->id]) }}">
                             <img src="http://localhost:8000/storage/images/{{$data->phone_image}}"style="width:180px;height:200px">
                         </a>
                         <a href="/phoneDetail" class="product-title">{{$data->phone_name}}</a>
                         <p class="price">{{number_format($data->phone_price)}}đ</p>
-                        <a type="button" class="btn btn-warning" href="/phoneDetail">
+                        <a type="button" class="btn btn-warning" href="{{ route('phoneDetail', ['id' => $data->id]) }}">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-caret-down-square" viewBox="0 0 16 16">
                                 <path
@@ -58,7 +58,7 @@
                             </svg>
                             Chi tiết
                         </a>
-                        <a type="button" class="btn btn-success" href="#">
+                        <a type="button" class="btn btn-success" href="{{ route('addPhoneToCart', ['phoneid' => $data->id]) }}">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-cart2" viewBox="0 0 16 16">
                                 <path

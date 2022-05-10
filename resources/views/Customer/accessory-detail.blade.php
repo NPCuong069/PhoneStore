@@ -10,7 +10,7 @@
         <div class="row">
             <div class="col-6">
                 <div class="showImage">
-                    <img src="img/home/taiNgheBluetooth.jpeg" width="500px"/>
+                    <img src="http://localhost:8000/storage/images/{{$data->accessory_image}}"width="500px"/>
                 </div>
             </div>
 

@@ -7,6 +7,15 @@
 @stop
 
 @section('content')
+@if ($errors->any())
+<div class="alert alert-danger">
+    <ul>
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
     {{-- Minimal --}}
     <form style="margin-left: 100px; margin-right:100px; margin-top:50px" action="{{route('accessory.update',$accessory->id)}}" method="POST">
       @csrf

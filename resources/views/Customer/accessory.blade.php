@@ -22,7 +22,7 @@
                 <ul class="menu-category">
                   @foreach ($brands as $brand)
                   <li>
-                      <a href="#">
+                      <a href="{{ route('customerAccessoryIndexByBrand',['brand'=>$brand->id]) }}">
                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                               class="bi bi-arrow-right-short" viewBox="0 0 16 16">
                               <path fill-rule="evenodd"
@@ -58,7 +58,7 @@
                           </svg>
                           Chi tiết
                       </a>
-                      <a type="button" class="btn btn-success" href="#">
+                      <a type="button" class="btn btn-success" href="{{ route('addAccessoryToCart', ['accessoryid' => $data->id]) }}">
                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                               class="bi bi-cart2" viewBox="0 0 16 16">
                               <path

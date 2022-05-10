@@ -22,31 +22,82 @@ class CartController extends Controller
     
     public function index(){
         $data = Cart::all();
-        return response()->json([CartResource::collection($data), 'Programs fetched.']);
+        return view('Admin/cart',['datas'=>$data]);
     }
     public function show($id)
     {
         $program = Cart::find($id);
         if (is_null($program)) {
             return response()->json('Data not found', 404); 
-
         }
         return response()->json([new CartResource($program)]);
     }
-    public function destroy($id)
-    {
-        $phone = Cart::find($id);
-        $phone->delete();
-        return response()->json('Program deleted successfully');
-    }
+
     public function update(Request $request, $id)
     {
         $phone=Cart::find($id);
         $phone->update($request->all());
         return $phone;
     }
+    public function paid(Request $request)
+    {
+        $cart=Cart::find($request->id);
+        $cart->update(['cart_status'=>1]);
+        return redirect()->route('cartAdminIndex');
+    }
+    public function delivered(Request $request)
+    {
+        $cart=Cart::find($request->id);
+        $status=3;
+        $cart->update(['cart_status'=>$status]);
+        return redirect()->route('cartAdminIndex');
+    }
+    public function delivering(Request $request)
+    {
+        $cart=Cart::find($request->id);
+        $cart->update(['cart_status'=>2]);
+        return redirect()->route('cartAdminIndex');
+    }
+    public function cartPhone(Request $request){
+
+        return view('Customer/phone-history');
+    }
+    public function getCart(Request $request){
+        $phone=$request->phone;
+        $items[]=[];
+        $carts=Cart::select()
+        ->where('phone', 'LIKE', "%{$phone}%") 
+        ->get();
+        return view('Customer/shopping-history',['carts'=>$carts]);
+    }
+    public function orderClear(){
+        session()->forget('cart');
+        return redirect()->route('customerCart');
+    }
+    public function updateQuantity(Request $request)
+    {
+        if($request->id and $request->quantity)
+        {
+            $cart = session()->get('cart');
+            $cart[$request->id]["quantity"] = $request->quantity;
+            session()->put('cart', $cart);
+            session()->flash('success', 'Cart updated successfully');
+        }
+    }
+    public function remove(Request $request)
+    {
+        if($request->id) {
+            $cart = session()->get('cart');
+            if(isset($cart[$request->id])) {
+                unset($cart[$request->id]);
+                session()->put('cart', $cart);
+            }
+            session()->flash('success', 'Product removed successfully');
+        }
+    }
     public function currentCart(Request $request){
         $cart = session()->get('cart');
+        $total=0;
         $phones=[];
         $accessories=[];
         if($cart){
@@ -61,6 +112,7 @@ class CartController extends Controller
                         'phone_price'=>$currentPhone->phone_price,
                         'phone_image'=>$currentPhone->phone_image
                     ];
+                    $total=$total+($currentPhone->phone_price)*$phone['quantity'];
                 }
             }
             if(isset($cart['accessory'])){
@@ -74,11 +126,12 @@ class CartController extends Controller
                         'phone_price'=>$currentAccessory->accesory_price,
                         'phone_image'=>$currentAccessory->accessory_image
                     ];
+                    $total=$total+($currentAccessory->accesory_price)*$accessory['quantity'];
                 }
             }
         }
 
-        return view('Customer/cart',['phones' => $phones,'accessories'=>$accessories]);
+        return view('Customer/cart',['phones' => $phones,'accessories'=>$accessories,'total'=>$total]);
     }
     public function addToCart(Request $request)
     {
@@ -156,10 +209,11 @@ class CartController extends Controller
     {
         // $data= DB::select('call quanbythanhpho("1")');
         $data= DB::table('devvn_tinhthanhpho')->get();
-
-        return view ('Customer/orderInformation',['data'=>$data]);
+        $total = $request->total;
+        return view ('Customer/orderInformation',['data'=>$data,'total'=>$total]);
         
     }
+
     public function payment(Request $request)
     {
         $this->validate($request, [
@@ -170,7 +224,7 @@ class CartController extends Controller
             'cart_address'=>'required',
             'phone'=>'required'
         ]);
-        $data= $request->only('cart_name','cart_address','phone');
+        $data= $request->only('cart_name','cart_address','phone','cart_price');
         $cartData = Cart::create($data);
         $cart = session()->get('cart');
         if(isset($cart['phone'])){
@@ -200,12 +254,13 @@ class CartController extends Controller
                     'phone_name'=>$currentAccessory->accesory_name,
                     'quantity'=>$accessory['quantity'],
                     'phone_price'=>$currentAccessory->accesory_price,
-                    'phone_image'=>$currentAccessory->accessory_image
+                    'phone_image'=>$currentAccessory->accessory_image,
+                
                 ];
                 CartItem::create([
                     'cart_id'=>$cartData->id,
-                    'phone_id'=>$currentAccessory->id,
-                    'quantity'=>$accessories['quantity']
+                    'accessory_id'=>$currentAccessory->id,
+                    'quantity'=>$accessory['quantity']
                 ]);
             }
         }

@@ -21,6 +21,10 @@ class PhoneControllerWeb extends Controller
     }
     public function store(Request $request){
         $request->validate([
+            'phone_name'=>'required',
+            'phone_price'=>'required|numeric',
+            'phone_details'=>'required',
+            'brand_id'=>'required',
             'image'=>'required|mimes:jpg,png,jpeg|max:5000'
         ]);
         $inputName =     str_replace(' ', '', $request->phone_name);
@@ -40,12 +44,19 @@ class PhoneControllerWeb extends Controller
         $brand = Brand::all();
         return view('Phone/showPhone',['datas' => $data,'brands'=>$brand]);
     }
+
+
     public function customerIndex(){
         $data = Phone::paginate(12);
         $brand = Brand::all();
         return view('Customer/phone',['datas' => $data,'brands'=>$brand]);
     }
-
+  
+    public function customerIndexByBrand(Request $request){
+        $data = Phone::select()->where('brand_id',$request->brand)->get();
+        $brand = Brand::all();
+        return view('Customer/phone',['datas' => $data,'brands'=>$brand]);
+    }
     public function show(Request $request)
     {
         $phone = Phone::find($request->id);
@@ -61,7 +72,13 @@ class PhoneControllerWeb extends Controller
         ->with('success','Product deleted successfully');
     }
     public function update(Request $request,Phone $phone)
-    {                                  
+    {                       
+        $request->validate([
+            'phone_name'=>'required',
+            'phone_price'=>'required|numeric',
+            'phone_details'=>'required',
+            'brand_id'=>'required',
+        ]);           
         $phone->update($request->all());
         return redirect()->route('phone.index')
         ->with('success','Phone updated successfully');

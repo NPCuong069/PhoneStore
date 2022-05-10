@@ -149,18 +149,19 @@
                     <div class="col-lg-4 form-group">
                         <label>Năm hết hạn</label>
                         <input class="form-control" placeholder="YYYY" size="4" type="text" name="expiry_year">
+                        <input class="form-control" hidden="hidden" type="text" name="cart_price" value="{{$total}}">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="form-control total btn btn-primary">
-                            Total: <span class="amount">$35</span>
+                            Tổng tiền: <span class="amount">{{number_format($total)}}đ</span>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-12 form-group">
-                        <button class="form-control btn btn-success submit-button" type="submit" style="margin-top: 10px;">Pay Now»</button>
+                        <button class="form-control btn btn-success submit-button" type="submit" style="margin-top: 10px;">Thanh toán</button>
                     </div>
                 </div>
             </form>

@@ -22,7 +22,8 @@ class Cart extends Authenticatable
         'matp',
         'maqh',
         'xaid',
-        'cart_address'
+        'cart_address',
+        'cart_price'
     ];
 
 }

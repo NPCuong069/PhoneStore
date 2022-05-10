@@ -31,7 +31,10 @@ Route::get('/showPhone', [PhoneControllerWeb::class, 'index']);
 Route::get('/login', [AdminControllerWeb::class, 'show']);
 Route::post('/login', [AdminControllerWeb::class, 'customLogin']);
 Route::post('/image',[ImageController::class,'upload'])->name('upload.base64');
-Route::get('/orderInfo', [CartController::class, 'orderInfo']);
+Route::get('/orderInfo', [CartController::class, 'orderInfo'])->name('orderInfo');
+Route::get('/orderClear', [CartController::class, 'orderClear'])->name('orderClear');
+Route::get('/cartPhone', [CartController::class, 'cartPhone'])->name('cartPhone');
+Route::post('/cartPhone', [CartController::class, 'getCart'])->name('getCart');
 Route::post('/subCat', [UserController::class, 'subCat']);
 Route::post('/subCat2', [UserController::class, 'subCat2']);
 Route::post('/payment', [CartController::class, 'payment']);
@@ -44,7 +47,9 @@ Route::get('/addPhoneToCart', [CartController::class, 'addToCart'])->name('addPh
 Route::get('/addAccessoryToCart', [CartController::class, 'addToCart'])->name('addAccessoryToCart');
 Route::get('/phoneDetails', [PhoneControllerWeb::class, 'show'])->name('phoneDetail');
 Route::get('/phoneIndex', [PhoneControllerWeb::class, 'customerIndex'])->name('customerPhoneIndex');
+Route::get('/phoneIndexByBrand', [PhoneControllerWeb::class, 'customerIndexByBrand'])->name('customerPhoneIndexByBrand');
 Route::get('/accessoryIndex', [AccessoryControllerWeb::class, 'customerIndex'])->name('customerAccessoryIndex');
+Route::get('/accessoryIndexByBrand', [AccessoryControllerWeb::class, 'customerIndexByBrand'])->name('customerAccessoryIndexByBrand');
 Route::get('/accessoryDetails', [AccessoryControllerWeb::class, 'show'])->name('accessoryDetail');
 //Cart
 // Route::get('/cart', function () {
@@ -60,6 +65,10 @@ Route::group(['middleware' => ['admin']], function() {
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('phone', PhoneControllerWeb::class);
     Route::resource('accessory', AccessoryControllerWeb::class);
+    Route::get('cart', [CartController::class, 'index'])->name('cartAdminIndex');
+    Route::get('cart/delivered', [CartController::class, 'delivered'])->name('cart.delivered');
+    Route::get('cart/delivering', [CartController::class, 'delivering'])->name('cart.delivering');
+    Route::get('cart/paid', [CartController::class, 'paid'])->name('cart.paid');
 });
 
 Route::post('signout', [AdminControllerWeb::class, 'signOut'])->name('signout');

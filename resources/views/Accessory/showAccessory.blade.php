@@ -21,7 +21,6 @@
       <th scope="col"style="text-align:center;">Price</th>
       <th scope="col"style="text-align:center;">Detail</th>
       <th scope="col"style="text-align:center;">Brand</th>
-      <th scope="col"style="text-align:center;">Image</th>
       <th scope="col"style="text-align:center;">Function</th>
     </tr>
   </thead>
@@ -52,7 +51,7 @@
     @endforeach
   </tbody>
 </table>
-
+{{$datas->links()}}
 @stop
 
 @section('css')

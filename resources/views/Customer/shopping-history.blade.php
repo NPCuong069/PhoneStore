@@ -15,91 +15,63 @@
     </div>
     <br>
 
+ 
     <!--Show product-->
-    <div class="content">
-        <div class="row">
-            <div class="col-3">
-                <a href="/accessoryDetail">
-                    <img src="img/home/taiNgheBluetooth.jpeg" class="image">
-                </a>
+    @if(count($carts)<1)
+     <div class="content">
+    <p class="text">Chưa có đơn hàng nào</p>
+     </div>
+    @endif
+    @foreach ($carts as $cart)
+        <div class="content">
+            <div class="row">
+                <div class="col-2">
+                    <p class="text">Tên khách hàng</p>
+                </div>
+           
+                <div class="col-2">
+                    <p class="text">Ngày đặt đơn</p>
+                </div>
+    
+                <div class="col-2">
+                    <p class="text">Tổng thanh toán</p>
+                </div>
+    
+                <!--Button-->
+                <div class="col-3">
+                    <p class="text">Tình trạng đơn hàng</p>
+                </div>
+                <div class="col-3">
+                    <p class="text">Địa chỉ giao hàng</p>
+                </div>
             </div>
-
-            <div class="col-3">
-                <p class="text">Tai nghe Bluetooth</p>
-            </div>
-
-            <div class="col-2">
-                <p class="text">x 1</p>
-            </div>
-
-            <div class="col-2">
-                <p class="text" style="color:red;">20.900.000đ</p>
-            </div>
-
-            <!--Button-->
-            <div class="col-2 buttonMuaLai">
-                <a type="button" class="btn btn-info" href="/accessoryDetail" style="float:right">Mua lại</a>
+            <div class="row">
+                <div class="col-2">
+                    <p class="text">{{$cart->cart_name}}</p>
+                </div>
+           
+                <div class="col-2">
+                    <p class="text">{{$cart->cart_date}}</p>
+                </div>
+    
+                <div class="col-2">
+                    <p class="text" style="color:red;">{{number_format($cart->cart_price)}}đ</p>
+                </div>
+                <div class="col-3">
+                    <p class="text">{{$cart->cart_address}}</p>
+                </div>
+                <!--Button-->
+                <div class="col-3">
+                    <p class="text">{{($cart->cart_status==1)?"Chưa giao":(($cart->cart_status==2)?"Đang giao":"Đã giao")}}</p>
+                </div>
             </div>
         </div>
-    </div>
-
+    
+    
+    @endforeach
     <br>
     <!--Show product-->
-    <div class="content">
-        <div class="row">
-            <div class="col-3">
-                <a href="/accessoryDetail">
-                    <img src="img/home/taiNgheBluetooth.jpeg" class="image">
-                </a>
-            </div>
-
-            <div class="col-3">
-                <p class="text">Tai nghe Bluetooth</p>
-            </div>
-
-            <div class="col-2">
-                <p class="text">x 1</p>
-            </div>
-
-            <div class="col-2">
-                <p class="text" style="color:red;">20.900.000đ</p>
-            </div>
-
-            <!--Button-->
-            <div class="col-2 buttonMuaLai">
-                <a type="button" class="btn btn-info" href="/accessoryDetail" style="float:right">Mua lại</a>
-            </div>
-        </div>
-    </div>
-    <br>
-
-    <!--Show product-->
-    <div class="content">
-        <div class="row">
-            <div class="col-3">
-                <a href="/accessoryDetail">
-                    <img src="img/home/taiNgheBluetooth.jpeg" class="image">
-                </a>
-            </div>
-
-            <div class="col-3">
-                <p class="text">Tai nghe Bluetooth</p>
-            </div>
-
-            <div class="col-2">
-                <p class="text">x 1</p>
-            </div>
-
-            <div class="col-2">
-                <p class="text" style="color:red;">20.900.000đ</p>
-            </div>
-
-            <!--Button-->
-            <div class="col-2 buttonMuaLai">
-                <a type="button" class="btn btn-info" href="/accessoryDetail" style="float:right">Mua lại</a>
-            </div>
-        </div>
-    </div>
+  
     <br>
 </div>
 @endsection

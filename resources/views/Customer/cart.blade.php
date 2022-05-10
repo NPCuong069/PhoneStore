@@ -75,13 +75,17 @@
         <div class="col-12 cart-total">
             <div class="total">
                 <span class="tongChiPhi">Tổng chi phí </span>
-                <span class="money"> 100.000.000đ </span>
+                <span class="money"> {{number_format($total)}}đ </span>
             </div>
             <div class="buttonThanhToan">
-                <a type="button" class="btn btn-success" href="#">Tiến hành thanh toán</a>
+                <a type="button" class="btn btn-success" href="{{ route('orderClear') }}">Xoá giỏ hàng</a>
+            </div>
+            <div class="buttonThanhToan">
+                <a type="button" class="btn btn-success" href="{{ route('orderInfo', ['total' => $total]) }}">Tiến hành thanh toán</a>
             </div>
         </div>
     </div>
+    
 </div>
 <br>
 @endsection
